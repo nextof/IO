@@ -128,9 +128,11 @@
 			@startuml
 			left to right direction
 
-			Reader -- (Borrow book)
-			Reader -- (Give back book)
-			Reader -- (Find book)
+			Client -- (Browse available vehicles)
+			Client -- (Make reservations)
+			Client -- (Rent vehicles)
+			Client -- (Manage rental history)
+			Client -- (Process payments)
 
 			Worker -- (Add book)
 			Worker -- (Update book)
