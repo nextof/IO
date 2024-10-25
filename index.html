@@ -134,16 +134,26 @@
 			Client -- (Manage rental history)
 			Client -- (Process payments)
 
-			Worker -- (Add book)
-			Worker -- (Update book)
-			Worker -- (Delete book)
-			Worker -- (Register new reader)
+			Customer Service -- (Assist with client reservations)
+			Customer Service -- (Process rentals)
+			Customer Service -- (Handle returns)
+			Customer Service -- (Manage payments)
+			Customer Service -- (Make reservations directly at the front desk)
 
-			Manager -- (Block reader)
+			Maintenance Technicians -- (Track repair statuses)
+			Maintenance Technicians -- (Log service information)
+			Maintenance Technicians -- (Update vehicle readiness)
+			
+			Manager -- (Oversee employees)
+			Manager -- (Approve staffing decisions)
+			Manager -- (Manage shift schedules)
+			Manager -- (Assign tasks)
+			Manager -- (Handle escalated customer issues)
+			Manager -- (Approve specific client requests)
 
-			(Give back book) <.. (Charge penalty) : <<extend>>
-			(Borrow book) ..> (Find book) : <<include>>
-			Manager --|> Worker
+			
+			Manager --|> Customer Service
+			Manager --|> Maintenance Technicians
 
 			@enduml
 		</p>
