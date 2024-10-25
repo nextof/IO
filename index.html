@@ -38,7 +38,7 @@
 			<ul>
 			<p>The <strong>Car Rental Management System</strong> is comprehensive software designed to manage all aspects of a car rental business, integrating internal processes with customer interactions. 
 			The system covers <strong>vehicle reservations</strong>, <strong>rentals</strong>, <strong>returns</strong>, <strong>fleet maintenance</strong>, <strong>staff management</strong>, 
-			and real-time <strong>vehicle status monitoring</strong>. It also includes integrated <strong>billing</strong> and <strong>payment</strong> handling, enabling easy <strong>transaction</strong> management.
+			and real-time <strong>vehicle status monitoring</strong>. It also includes integrated <strong>billing</strong> and <strong>payment</strong> handling, enabling easy transaction management.
 			With this integration, the system provides centralized access to information, enabling efficient operations.</p>
 			</ul>
 			
@@ -52,7 +52,7 @@
 				The system records shift start and end times, assigned tasks, and employee availability.</li>
 				<li><strong>Billing and Payments</strong>: The system calculates rental costs based on vehicle type, rental duration, mileage, additional services, and taxes. 
 				Payment options include credit cards, debit cards, and electronic payments. Late fees, penalties, or discounts are automatically applied based on company policy and client rental history.</li>
-				<li><strong>Operations</strong>: Core operations include vehicle reservation, rental, return, maintenance scheduling, vehicle availability updates, and service record tracking.</li>
+				<li><strong>Operations</strong>: Core operations include vehicle reservation, rental, return, cancelation, maintenance scheduling, vehicle availability updates, and service record tracking.</li>
 			</ul>
 
 			<h3>C. User Types</h3>
@@ -71,6 +71,7 @@
 				<li><strong>Vehicle Rental</strong>: When the client arrives, the Customer Service Representative verifies their profile, confirms the reservation, and initiates the rental. 
 				The vehicle status is then updated as rented.</li>
 				<li><strong>Vehicle Return</strong>: Upon completion, the vehicle is returned, and the status is updated to available. The representative logs any extra charges, fuel levels, and vehicle condition.</li>
+				<li><strong>Reservation Cancelation</strong>: A client can cancel reservation before picking up the vehicle, extra charges will be added depending of time remaining to pick-up</li>
 				<li><strong>Billing and Payments</strong>: At the end of each rental, the system generates an invoice based on the rental agreement. 
 				Charges include base fees, taxes, and any additional costs, such as mileage overage or late fees. Clients can pay directly through the system or at the front desk. 
 				Payment status and history are updated in the client profile, and receipts are issued electronically.</li>
@@ -88,79 +89,35 @@
 			</ul>
 	</article>
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	<article id="dictionary-polish">
-		<h4>Słownik pojęć</h4>
-		<p class="guidelines">Lista wykorzystywanych pojęć wraz z opisem</p>
-		<ul>
-			<li>
-				<strong>Pojęcie</strong>
-				Szczegółowy opis pojęcia
-			</li>
-			<li>
-				<strong>Pojęcie 2</strong>
-				Szczegółowy opis drugiego pojęcia
-			</li>
-		</ul>
-	</article>
 
 	<article id="dictionary-english">
-		<h4>Dictionary</h4>
-		<p class="guidelines">List of used terms with description</p>
+		<h2>2. Dictionary</h2>
 		<ul>
-			<li>
-				<strong>Term</strong>
-				Detailed description of term
-			</li>
+			
+			<li><strong>Vehicle</strong>:  car or similar mode of transport within the rental company’s fleet. Each vehicle has specific details, such as make, model, year, license plate, mileage, and condition status, which are tracked in the system.</li>
+			<li><strong>Client</strong>: An individual or organization renting a vehicle from the company. Client profiles include personal information, rental history, billing records, and any relevant restrictions.</li>
+			<li><strong>Fleet</strong>: The complete collection of vehicles owned by the rental company and available for rental. The fleet is managed within the system, tracking availability, maintenance schedules, and rental status for each vehicle.</li>
+			<li><strong>Reservation</strong>: A client’s booking of a vehicle for a specific period. The reservation process includes selecting a vehicle, choosing rental dates, and confirming the booking, after which the vehicle status is updated as reserved.</li>
+			<li><strong>Rental</strong>: The active usage period of a vehicle by a client, initiated at the start of the rental contract. During this period, the vehicle is marked as unavailable for other reservations until returned.</li>
+			<li><strong>Return</strong>: The process by which a client returns a rented vehicle, allowing for an inspection and status update in the system. Return procedures also involve recording fuel levels, any damages, and finalizing billing.</li>
+			<li><strong>Customer Service Representative</strong>: An employee who assists clients with reservations, rental processing, returns, and payments. They interact directly with clients, managing reservations both online and in person.</li>
+			<li><strong>Maintenance Technicians</strong>:  An employee who is responsible for maintenance of the fleet, ensures vehicle safety and performance, flaggs in the system when vehicles are unavailable for rental due to service needs.</li>
+			<li><strong>Manager</strong>: An employee responsible for overseeing other staff, managing shifts, assigning tasks, and handling escalated issues. Managers have permissions to approve staffing decisions, 
+			assign specific employee roles, and optimize resource allocation within the system.</li>
+			<li><strong>Administrator</strong>: An employee responsible for managing system settings, user permissions, security, and data access. Administrators oversee the integrity of the system, handle role assignments, and manage data control policies.</li>
+			<li><strong>Staff</strong>: All employees within the rental company, including Customer Service Representatives, Maintenance Technicians, Managers, and Administrators. Each staff member has specific permissions and responsibilities within the system.</li>
+			
+			<li><strong>Billing</strong>: The process of calculating and invoicing costs associated with a rental, including base fees, additional charges, taxes, and any penalties. Billing information is associated with each client profile and updated upon rental completion.</li>
+			<li><strong>Payment</strong>: The transaction that completes the rental process, with clients settling outstanding charges. Payments can be made directly through the system or at the front desk, and are logged in client billing records.</li>
+			<li><strong>User Interface</strong>: The visual and interactive components of the system that allow users to navigate, input, and access information. The interface is tailored to different user roles, providing a clear and efficient experience for all employees and clients.</li>
+    
 		</ul>
 	</article>
 	
-	<article id="user-stories-polish">	
-		<h4>User Stories (po polsku)</h4>
-		<p class="guidelines">User stories w języku polskim</p>
-		<p>Jako zwykay czytelnik chcę wypożyczyć książkę w taki sposób, aby móc ją czytać.</p>
-	</article>
 
 	
 	<article id="user-stories-english">
-		<h4>User Stories (in english)</h4>
-		<p class="guidelines">User stories in english</p>
+		<h2>3. User Stories</h2>
 		<p>As a regular reader I want to borrow a book so that I can read it.</p>
 	</article>
 
