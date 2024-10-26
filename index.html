@@ -186,6 +186,7 @@
 
 			(Oversee user roles and permissions) <.. (Oversee data access) : <<extend>>
 			(Rent vehicles) <.. (Make reservations) : <<extend>>
+			(Process rentals) ..> (Assist with client reservations) : <<include>>
 			(Make reservations) ..> (Process payments) : <<include>>
 				
 			@enduml
