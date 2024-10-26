@@ -151,7 +151,6 @@
 			left to right direction
 
 			Client -- (Browse available vehicles)
-			Client -- (Make reservations)
 			Client -- (Rent vehicles)
 			Client -- (Manage rental history)
 			Client -- (Process payments)
@@ -186,7 +185,9 @@
 
 
 			(Oversee user roles and permissions) <.. (Oversee data access) : <<extend>>
-			
+			(Rent vehicles) <.. (Make reservations) : <<extend>>
+			(Make reservations) ..> (Process payments) : <<include>>
+				
 			@enduml
 		</p>
 	</article>
