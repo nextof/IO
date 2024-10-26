@@ -34,16 +34,17 @@
 	
 	<article id="description-english">
 		<h2>1. System description</h2>
-			<h3>A. Basic Information about the System</h3>
-			<ul>
+		<ul>
+			<h3>1.1 Basic Information about the System</h3>
+			
 			<p>The <strong>Car Rental Management System</strong> is comprehensive software designed to manage all aspects of a car rental business, integrating internal processes with customer interactions. 
 			The system covers <strong>vehicle reservations</strong>, <strong>rentals</strong>, <strong>returns</strong>, <strong>fleet maintenance</strong>, <strong>staff management</strong>, 
 			and real-time <strong>vehicle status monitoring</strong>. It also includes integrated <strong>billing</strong> and <strong>payment</strong> handling, enabling easy transaction management.
 			With this integration, the system provides centralized access to information, enabling efficient operations.</p>
 			</ul>
-			
-			<h3>B. Description of the Modeled Reality</h3>
 			<ul>
+			<h3>1.2 Description of the Modeled Reality</h3>
+			
 				<li><strong>Vehicle</strong>: Each vehicle in the fleet has attributes such as make, model, production year, license plate, vehicle type (e.g., SUV, sedan, hatchback), mileage, 
 				technical condition, and a unique identifier. Vehicles can be rented, reserved, or flagged for maintenance based on their condition.</li>
 				<li><strong>Client</strong>: Each client profile includes personal details, rental history, reservations, billing information, and any restrictions based on prior rental behavior.</li>
@@ -54,18 +55,18 @@
 				Payment options include credit cards, debit cards, and electronic payments. Late fees, penalties, or discounts are automatically applied based on company policy and client rental history.</li>
 				<li><strong>Operations</strong>: Core operations include vehicle reservation, rental, return, cancelation, maintenance scheduling, vehicle availability updates, and service record tracking.</li>
 			</ul>
-
-			<h3>C. User Types</h3>
-			<ul>
+<ul>
+			<h3>1.3 User Types</h3>
+			
 				<li><strong>Clients</strong>: Can browse available vehicles, make reservations, rent vehicles, manage their rental history, and process payments.</li>
 				<li><strong>Customer Service Representatives</strong>: Assist with client reservations, process rentals, handle returns, and manage payments. They can make reservations directly at the front desk for clients who arrive in person.</li>
 				<li><strong>Maintenance Technicians</strong>: Track repair statuses, log service information, and update vehicle readiness.</li>
 				<li><strong>Managers</strong>: Responsible for employee oversight, approving staffing decisions, managing shift schedules, and assigning tasks. They also handle escalated customer issues and approve specific client requests.</li>
 				<li><strong>Administrators</strong>: Manage system configurations, user roles, and permissions. They monitor security, oversee data access, and handle account setups for new employees.</li>
 			</ul>
-			
-			<h3>D. System Functionality</h3>
 			<ul>
+			<h3>1.4 System Functionality</h3>
+			
 				<li><strong>Vehicle Reservation</strong>: A client (or a Customer Service Representative on their behalf) selects a vehicle, chooses rental dates, and confirms the reservation. 
 				The system then marks the vehicle as reserved for the specified period.</li>
 				<li><strong>Vehicle Rental</strong>: When the client arrives, the Customer Service Representative verifies their profile, confirms the reservation, and initiates the rental. 
@@ -80,9 +81,9 @@
 				The system logs shift start and end times, task completion, and employee availability. It also provides reports on staffing and usage, helping Managers to optimize resource allocation.</li>
 				<li><strong>User Management and Role Assignment</strong>: Administrators assign roles, set permissions, and handle employee onboarding.</li>
 			</ul>
-			
-			<h3>E. Non-Functional Requirements</h3>
 			<ul>
+			<h3>1.5 Non-Functional Requirements</h3>
+			
 				<li><strong>Performance</strong>: The system supports real-time bookings and fleet updates, even under high transaction volumes.</li>
 				<li><strong>User Interface</strong>: The interface should be user-friendly, mobile-responsive, and tailored to each user role, allowing easy navigation to relevant functions.</li>
 				<li><strong>Security and Access Control</strong>: Security protocols protect client data and restrict access based on user roles. System logs track all actions for accountability.</li>
@@ -118,29 +119,33 @@
 	
 	<article id="user-stories-english">
 		<h2>3. User Stories</h2>
-		<h4>3.1 Client User Stories</h4>
-		<p>As a client, I want to browse available vehicles so that I can find the best option for my rental needs.</p>
-		<p>As a client, I want to make a reservation for a vehicle so that I can ensure it is available when I need it.</p>
-		<p>As a client, I want to manage my rental history so that I can track my previous rentals and expenses.</p>
-		<p>As a client, I want to cancel my reservation so that I can avoid any unnecessary charges if my plans change.</p>
-		
-		<h4>3.2 Customer Service Representative User Stories</h4>
-		<p>As a Customer Service Representative, I want to process vehicle rentals and returns quickly so that clients have a smooth and efficient experience.</p>
-		<p>As a Customer Service Representative, I want to log any additional charges for clients during vehicle returns so that their invoices are accurate and complete.</p>
-		
-		<h4>3.3 Maintenance Technician User Stories</h4>
-		<p>As a Maintenance Technician, I want to update the service records for each vehicle so that I can keep track of their maintenance history.</p>
-		<p></p>As a Maintenance Technician, I want to flag vehicles that are under maintenance so that other employees know they are unavailable for rental.</p>
-		<p>As a Maintenance Technician, I want to view the status of vehicle repairs so that I can inform management when vehicles will be ready for rental.</p>
-		
-		<h4>3.4 Manager User Stories</h4>
-		<p>As a manager, I want to approve staffing decisions so that I can maintain a well-functioning team.</p>
-		<p>As a manager, I want to handle escalated customer issues so that I can resolve conflicts and ensure client satisfaction.</p>
-		
-		<h4>Administrator User Stories</h4>
-		<p>As an administrator, I want to manage user roles and permissions so that I can ensure security and proper access control within the system.</p>
-		<p>As an administrator, I want to monitor data access logs so that I can maintain system security and address any potential issues.</p>
-		<p>As an administrator, I want to handle account setups for new employees so that they can start using the system as soon as possible.</p>
+		<ul>
+			<h4>3.1 Client User Stories</h4>
+			<p>As a client, I want to browse available vehicles so that I can find the best option for my rental needs.</p>
+			<p>As a client, I want to make a reservation for a vehicle so that I can ensure it is available when I need it.</p>
+			<p>As a client, I want to manage my rental history so that I can track my previous rentals and expenses.</p>
+			<p>As a client, I want to cancel my reservation so that I can avoid any unnecessary charges if my plans change.</p>
+			
+			<h4>3.2 Customer Service Representative User Stories</h4>
+			<p>As a Customer Service Representative, I want to process vehicle rentals and returns quickly so that clients have a smooth and efficient experience.</p>
+			<p>As a Customer Service Representative, I want to log any additional charges for clients during vehicle returns so that their invoices are accurate and complete.</p>
+			<p>As a Customer Service Representative, I want to assisst clients in making reservations in person so that the proces is as accessible as possible </p>
+			
+			<h4>3.3 Maintenance Technician User Stories</h4>
+			<p>As a Maintenance Technician, I want to update the service records for each vehicle so that I can keep track of their maintenance history.</p>
+			<p></p>As a Maintenance Technician, I want to flag vehicles that are under maintenance so that other employees know they are unavailable for rental.</p>
+			<p>As a Maintenance Technician, I want to view the status of vehicle repairs so that I can inform management when vehicles will be ready for rental.</p>
+			
+			<h4>3.4 Manager User Stories</h4>
+			<p>As a manager, I want to approve staffing decisions so that I can maintain a well-functioning team.</p>
+			<p>As a manager, I want to handle escalated customer issues so that I can resolve conflicts and ensure client satisfaction.</p>
+			<p>As a manager, I want to assign specifc tasks to employees so that problems are delt with as soon as possible </p>
+			
+			<h4>3.5 Administrator User Stories</h4>
+			<p>As an administrator, I want to manage user roles and permissions so that I can ensure security and proper access control within the system.</p>
+			<p>As an administrator, I want to monitor data access logs so that I can maintain system security and address any potential issues.</p>
+			<p>As an administrator, I want to handle account setups for new employees so that they can start using the system as soon as possible.</p>
+		</ul>
 	</article>
 
 	
