@@ -180,10 +180,12 @@
 			Administrator -- (Manage system configurations)
 			Administrator -- (Oversee user roles and permissions)
 			Administrator -- (Monitor security)
-			Administrator -- (Oversee data access)
 			Administrator -- (Handle account setups for new employees)
 
 			Administrator --|> Manager
+
+
+			(Oversee user roles and permissions) <.. (Oversee data access) : <<extend>>
 			
 			@enduml
 		</p>
