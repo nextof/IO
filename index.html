@@ -201,6 +201,254 @@
 	<article id="use-case-scenarios-polish">
 		<h4>Scenariusze przypadków użycia</h4>
 		<p class="guidelines">Scenariusze przypadków użycia w języku polskim. Do wygenerowania tabeli scenariusza należy wykorzystać generator dostępny <a href="http://kronos.tu.kielce.pl/uml/scenarios.html">tutaj</a>.</p>
+
+		<table border="1">
+			<tbody><tr>
+				<th>Author name:</th>
+				<td style="width: 15cm;">
+					Jakub
+				</td>
+			</tr>
+			<tr>
+				<th>Author surname:</th>
+				<td style="width: 15cm;">
+					Sikora
+				</td>
+			</tr>
+			<tr>
+				<th>Author group:</th>
+				<td style="width: 15cm;">
+					Group 1
+				</td>
+			</tr>
+			<tr>
+				<th>Subject:</th>
+				<td style="width: 15cm;">
+					Car Rental Managment System
+				</td>
+			</tr>
+			<tr>
+				<th>Use Case:</th>
+				<td style="width: 15cm;">
+					Task assignment
+				</td>
+			</tr>
+			<tr>
+				<th>Language:</th>
+				<td style="width: 15cm;">
+					English
+				</td>
+			</tr>
+			<tr>
+				<th>Preconditions:</th>
+				<td style="width: 15cm;">
+					<ul>
+						<li>
+							Manager must be logged in
+						</li>
+						<li>
+							Maintenance technicians must be avaivable 
+						</li>
+					</ul>
+				</td>
+			</tr>
+			<tr>
+				<th>Postconditions:</th>
+				<td style="width: 15cm;">
+					<ul>
+						<li>
+							New task has been added
+						</li>
+					</ul>
+				</td>
+			</tr>
+			<tr>
+				<th>Actors:</th>
+				<td style="width: 15cm;">
+					<ul>
+						<li>
+							Manager
+						</li>
+						<li>
+							Maintenance Technicians
+						</li>
+					</ul>
+				</td>
+			</tr>
+			<tr>
+				<th>Main flow:</th>
+				<td style="width: 15cm;">
+					<ol>
+						<li>
+							Manager chose "Add new task" option
+						</li>
+						<li>
+							System displays "Add new task" form
+						</li>
+						<li>
+							Manager pick avaivable Maintenance Technician
+						</li>
+						<li>
+							Manager selects the car for which the task applies
+						</li>
+						<li>
+							Manager input information about task
+						</li>
+						<li>
+							Manager sends form to system
+						</li>
+						<li>
+							System validate data
+						</li>
+						<li>
+							System adds a new task
+						</li>
+					</ol>
+				</td>
+			</tr>
+			<tr>
+				<th>Alternate flow:</th>
+				<td style="width: 15cm;">
+					<ul>
+						<li>
+							<span class="number">7</span>
+							<span class="condition">Not all required fields have been entered</span>
+							<span class="reaction-additional"></span>
+							<span class="reaction-type">GOTO</span>
+							<span class="reaction-goto">2</span>
+						</li>
+					</ul>
+				</td>
+			</tr>
+		</tbody></table>
+
+		<table border="1">
+			<tbody><tr>
+				<th>Author name:</th>
+				<td style="width: 15cm;">
+					Jakub
+				</td>
+			</tr>
+			<tr>
+				<th>Author surname:</th>
+				<td style="width: 15cm;">
+					Sikora
+				</td>
+			</tr>
+			<tr>
+				<th>Author group:</th>
+				<td style="width: 15cm;">
+					Group 1
+				</td>
+			</tr>
+			<tr>
+				<th>Subject:</th>
+				<td style="width: 15cm;">
+					Car Rental Managment System
+				</td>
+			</tr>
+			<tr>
+				<th>Use Case:</th>
+				<td style="width: 15cm;">
+					Car repair task status update
+				</td>
+			</tr>
+			<tr>
+				<th>Language:</th>
+				<td style="width: 15cm;">
+					English
+				</td>
+			</tr>
+			<tr>
+				<th>Preconditions:</th>
+				<td style="width: 15cm;">
+					<ul>
+						<li>
+							Maintenance technician must be logged in
+						</li>
+						<li>
+							Task cannot be marked as completed
+						</li>
+						<li>
+							Task must be added previously
+						</li>
+					</ul>
+				</td>
+			</tr>
+			<tr>
+				<th>Postconditions:</th>
+				<td style="width: 15cm;">
+					<ul>
+						<li>
+							Task status has been updated
+						</li>
+						<li>
+							If task marked as succesfully finished, car is avaivable to rent
+						</li>
+					</ul>
+				</td>
+			</tr>
+			<tr>
+				<th>Actors:</th>
+				<td style="width: 15cm;">
+					<ul>
+						<li>
+							Maintenance Technician
+						</li>
+					</ul>
+				</td>
+			</tr>
+			<tr>
+				<th>Main flow:</th>
+				<td style="width: 15cm;">
+					<ol>
+						<li>
+							The employee chooses a specific task
+						</li>
+						<li>
+							System displays "Update task" form
+						</li>
+						<li>
+							The employee updates details in form
+						</li>
+						<li>
+							The employee sends form to system
+						</li>
+						<li>
+							System validates data 
+						</li>
+						<li>
+							System updates task status
+						</li>
+						<li>
+							System adds the vehicle to the pool of available cars
+						</li>
+					</ol>
+				</td>
+			</tr>
+			<tr>
+				<th>Alternate flow:</th>
+				<td style="width: 15cm;">
+					<ul>
+						<li>
+							<span class="number">5</span>
+							<span class="condition">Not all required fields have been entered</span>
+							<span class="reaction-additional"></span>
+							<span class="reaction-type">GOTO</span>
+							<span class="reaction-goto">2</span>
+						</li>
+						<li>
+							<span class="number">6</span>
+							<span class="condition">If task marked as succesfully repaired</span>
+							<span class="reaction-additional"></span>
+							<span class="reaction-type">GOTO</span>
+							<span class="reaction-goto">7</span>
+						</li>
+					</ul>
+				</td>
+			</tr>
+		</tbody></table>
+
 		
 		<table border="1">
 			<tbody><tr>
