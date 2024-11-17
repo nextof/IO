@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
 	<meta charset="UTF-8">
@@ -198,496 +198,521 @@
 		</p>
 	</article>
 	
-	<article id="use-case-scenarios-polish">
-		<h4>Scenariusze przypadków użycia</h4>
-		<p class="guidelines">Scenariusze przypadków użycia w języku polskim. Do wygenerowania tabeli scenariusza należy wykorzystać generator dostępny <a href="http://kronos.tu.kielce.pl/uml/scenarios.html">tutaj</a>.</p>
-
-		<table border="1">
-			<tbody><tr>
-				<th>Author name:</th>
-				<td style="width: 15cm;">
-					Jakub
-				</td>
-			</tr>
-			<tr>
-				<th>Author surname:</th>
-				<td style="width: 15cm;">
-					Sikora
-				</td>
-			</tr>
-			<tr>
-				<th>Author group:</th>
-				<td style="width: 15cm;">
-					Group 1
-				</td>
-			</tr>
-			<tr>
-				<th>Subject:</th>
-				<td style="width: 15cm;">
-					Car Rental Managment System
-				</td>
-			</tr>
-			<tr>
-				<th>Use Case:</th>
-				<td style="width: 15cm;">
-					Task assignment
-				</td>
-			</tr>
-			<tr>
-				<th>Language:</th>
-				<td style="width: 15cm;">
-					English
-				</td>
-			</tr>
-			<tr>
-				<th>Preconditions:</th>
-				<td style="width: 15cm;">
-					<ul>
-						<li>
-							Manager must be logged in
-						</li>
-						<li>
-							Maintenance technicians must be avaivable 
-						</li>
-					</ul>
-				</td>
-			</tr>
-			<tr>
-				<th>Postconditions:</th>
-				<td style="width: 15cm;">
-					<ul>
-						<li>
-							New task has been added
-						</li>
-					</ul>
-				</td>
-			</tr>
-			<tr>
-				<th>Actors:</th>
-				<td style="width: 15cm;">
-					<ul>
-						<li>
-							Manager
-						</li>
-						<li>
-							Maintenance Technicians
-						</li>
-					</ul>
-				</td>
-			</tr>
-			<tr>
-				<th>Main flow:</th>
-				<td style="width: 15cm;">
-					<ol>
-						<li>
-							Manager chose "Add new task" option
-						</li>
-						<li>
-							System displays "Add new task" form
-						</li>
-						<li>
-							Manager pick avaivable Maintenance Technician
-						</li>
-						<li>
-							Manager selects the car for which the task applies
-						</li>
-						<li>
-							Manager input information about task
-						</li>
-						<li>
-							Manager sends form to system
-						</li>
-						<li>
-							System validate data
-						</li>
-						<li>
-							System adds a new task
-						</li>
-					</ol>
-				</td>
-			</tr>
-			<tr>
-				<th>Alternate flow:</th>
-				<td style="width: 15cm;">
-					<ul>
-						<li>
-							<span class="number">7</span>
-							<span class="condition">Not all required fields have been entered</span>
-							<span class="reaction-additional"></span>
-							<span class="reaction-type">GOTO</span>
-							<span class="reaction-goto">2</span>
-						</li>
-					</ul>
-				</td>
-			</tr>
-		</tbody></table>
-
-		<table border="1">
-			<tbody><tr>
-				<th>Author name:</th>
-				<td style="width: 15cm;">
-					Jakub
-				</td>
-			</tr>
-			<tr>
-				<th>Author surname:</th>
-				<td style="width: 15cm;">
-					Sikora
-				</td>
-			</tr>
-			<tr>
-				<th>Author group:</th>
-				<td style="width: 15cm;">
-					Group 1
-				</td>
-			</tr>
-			<tr>
-				<th>Subject:</th>
-				<td style="width: 15cm;">
-					Car Rental Managment System
-				</td>
-			</tr>
-			<tr>
-				<th>Use Case:</th>
-				<td style="width: 15cm;">
-					Car repair task status update
-				</td>
-			</tr>
-			<tr>
-				<th>Language:</th>
-				<td style="width: 15cm;">
-					English
-				</td>
-			</tr>
-			<tr>
-				<th>Preconditions:</th>
-				<td style="width: 15cm;">
-					<ul>
-						<li>
-							Maintenance technician must be logged in
-						</li>
-						<li>
-							Task cannot be marked as completed
-						</li>
-						<li>
-							Task must be added previously
-						</li>
-					</ul>
-				</td>
-			</tr>
-			<tr>
-				<th>Postconditions:</th>
-				<td style="width: 15cm;">
-					<ul>
-						<li>
-							Task status has been updated
-						</li>
-						<li>
-							If task marked as succesfully finished, car is avaivable to rent
-						</li>
-					</ul>
-				</td>
-			</tr>
-			<tr>
-				<th>Actors:</th>
-				<td style="width: 15cm;">
-					<ul>
-						<li>
-							Maintenance Technician
-						</li>
-					</ul>
-				</td>
-			</tr>
-			<tr>
-				<th>Main flow:</th>
-				<td style="width: 15cm;">
-					<ol>
-						<li>
-							The employee chooses a specific task
-						</li>
-						<li>
-							System displays "Update task" form
-						</li>
-						<li>
-							The employee updates details in form
-						</li>
-						<li>
-							The employee sends form to system
-						</li>
-						<li>
-							System validates data 
-						</li>
-						<li>
-							System updates task status
-						</li>
-						<li>
-							System adds the vehicle to the pool of available cars
-						</li>
-					</ol>
-				</td>
-			</tr>
-			<tr>
-				<th>Alternate flow:</th>
-				<td style="width: 15cm;">
-					<ul>
-						<li>
-							<span class="number">5</span>
-							<span class="condition">Not all required fields have been entered</span>
-							<span class="reaction-additional"></span>
-							<span class="reaction-type">GOTO</span>
-							<span class="reaction-goto">2</span>
-						</li>
-						<li>
-							<span class="number">6</span>
-							<span class="condition">If task marked as succesfully repaired</span>
-							<span class="reaction-additional"></span>
-							<span class="reaction-type">GOTO</span>
-							<span class="reaction-goto">7</span>
-						</li>
-					</ul>
-				</td>
-			</tr>
-		</tbody></table>
-
-		
-		<table border="1">
-			<tbody><tr>
-				<th>Author name:</th>
-				<td style="width: 15cm;">
-					Adam
-				</td>
-			</tr>
-			<tr>
-				<th>Author surname:</th>
-				<td style="width: 15cm;">
-					Krechowicz
-				</td>
-			</tr>
-			<tr>
-				<th>Author group:</th>
-				<td style="width: 15cm;">
-					Group 1
-				</td>
-			</tr>
-			<tr>
-				<th>Subject:</th>
-				<td style="width: 15cm;">
-					System zarządzania biblioteką
-				</td>
-			</tr>
-			<tr>
-				<th>Use Case:</th>
-				<td style="width: 15cm;">
-					Dodaj książkę
-				</td>
-			</tr>
-			<tr>
-				<th>Language:</th>
-				<td style="width: 15cm;">
-					Polish
-				</td>
-			</tr>
-			<tr>
-				<th>Preconditions:</th>
-				<td style="width: 15cm;">
-					<ul>
-						<li>
-							Użytkownik musi być zalogowany do systemu
-						</li>
-					</ul>
-				</td>
-			</tr>
-			<tr>
-				<th>Postconditions:</th>
-				<td style="width: 15cm;">
-					<ul>
-						<li>
-							Dodano nową książkę
-						</li>
-					</ul>
-				</td>
-			</tr>
-			<tr>
-				<th>Actors:</th>
-				<td style="width: 15cm;">
-					<ul>
-						<li>
-							Pracownik
-						</li>
-						<li>
-							Kierownik
-						</li>
-					</ul>
-				</td>
-			</tr>
-			<tr>
-				<th>Main flow:</th>
-				<td style="width: 15cm;">
-					<ol>
-						<li>
-							Użytkownik wybiera opcję dodaj nową książkę
-						</li>
-						<li>
-							System wyświetla formularz dodania nowej książki
-						</li>
-						<li>
-							Użytkownik wypełnia formularz dodania nowej książki
-						</li>
-						<li>
-							Użytkownik wysyła formularz
-						</li>
-						<li>
-							System dokonuje walidacji formularza
-						</li>
-						<li>
-							System dodaje nową książkę
-						</li>
-					</ol>
-				</td>
-			</tr>
-			<tr>
-				<th>Alternate flow:</th>
-				<td style="width: 15cm;">
-					<ul>
-						<li>
-							<span class="number">5</span>
-							<span class="condition">Książka o podanym tytule już istnieje. </span>
-							<span class="reaction-type">GOTO</span>
-							<span class="reaction-goto">2</span>
-						</li>
-						<li>
-							<span class="number">5</span>
-							<span class="condition">Nie wszystkie wymagane pola zostały wpisane</span>
-							<span class="reaction-type">GOTO</span>
-							<span class="reaction-goto">2</span>
-						</li>
-					</ul>
-				</td>
-			</tr>
-		</tbody></table>
-
-		<table border="1">
-			<tbody><tr>
-				<th>Author name:</th>
-				<td style="width: 15cm;">
-					Adam
-				</td>
-			</tr>
-			<tr>
-				<th>Author surname:</th>
-				<td style="width: 15cm;">
-					Krechowicz
-				</td>
-			</tr>
-			<tr>
-				<th>Author group:</th>
-				<td style="width: 15cm;">
-					Group 1
-				</td>
-			</tr>
-			<tr>
-				<th>Subject:</th>
-				<td style="width: 15cm;">
-					System zarządzania biblioteką
-				</td>
-			</tr>
-			<tr>
-				<th>Use Case:</th>
-				<td style="width: 15cm;">
-					Dodaj książkę
-				</td>
-			</tr>
-			<tr>
-				<th>Language:</th>
-				<td style="width: 15cm;">
-					Polish
-				</td>
-			</tr>
-			<tr>
-				<th>Preconditions:</th>
-				<td style="width: 15cm;">
-					<ul>
-						<li>
-							Użytkownik musi być zalogowany do systemu
-						</li>
-					</ul>
-				</td>
-			</tr>
-			<tr>
-				<th>Postconditions:</th>
-				<td style="width: 15cm;">
-					<ul>
-						<li>
-							Dodano nową książkę
-						</li>
-					</ul>
-				</td>
-			</tr>
-			<tr>
-				<th>Actors:</th>
-				<td style="width: 15cm;">
-					<ul>
-						<li>
-							Pracownik
-						</li>
-						<li>
-							Kierownik
-						</li>
-					</ul>
-				</td>
-			</tr>
-			<tr>
-				<th>Main flow:</th>
-				<td style="width: 15cm;">
-					<ol>
-						<li>
-							Użytkownik wybiera opcję dodaj nową książkę
-						</li>
-						<li>
-							System wyświetla formularz dodania nowej książki
-						</li>
-						<li>
-							Użytkownik wypełnia formularz dodania nowej książki
-						</li>
-						<li>
-							Użytkownik wysyła formularz
-						</li>
-						<li>
-							System dokonuje walidacji formularza
-						</li>
-						<li>
-							System dodaje nową książkę
-						</li>
-					</ol>
-				</td>
-			</tr>
-			<tr>
-				<th>Alternate flow:</th>
-				<td style="width: 15cm;">
-					<ul>
-						<li>
-							<span class="number">5</span>
-							<span class="condition">Książka o podanym tytule już istnieje. </span>
-							<span class="reaction-type">GOTO</span>
-							<span class="reaction-goto">2</span>
-						</li>
-						<li>
-							<span class="number">5</span>
-							<span class="condition">Nie wszystkie wymagane pola zostały wpisane</span>
-							<span class="reaction-type">GOTO</span>
-							<span class="reaction-goto">2</span>
-						</li>
-					</ul>
-				</td>
-			</tr>
-		</tbody></table>
-	</article>
-
-	
 	<article id="use-case-scenarios-english">
-		<h4>Use case scenarios</h4>
-		<p class="guidelines">Use case scenarios in english</p>
+		<h2>5. Use case scenarios</h2> <br>
+
+		<table border="1">
+			<tbody>
+				<tr>
+					<th>Author name:</th>
+					<td style="width: 15cm;">
+						Jakub
+					</td>
+				</tr>
+				<tr>
+					<th>Author surname:</th>
+					<td style="width: 15cm;">
+						Sikora
+					</td>
+				</tr>
+				<tr>
+					<th>Author group:</th>
+					<td style="width: 15cm;">
+						Group 1
+					</td>
+				</tr>
+				<tr>
+					<th>Subject:</th>
+					<td style="width: 15cm;">
+						Car Rental Managment System
+					</td>
+				</tr>
+				<tr>
+					<th>Use Case:</th>
+					<td style="width: 15cm;">
+						Task assignment
+					</td>
+				</tr>
+				<tr>
+					<th>Language:</th>
+					<td style="width: 15cm;">
+						English
+					</td>
+				</tr>
+				<tr>
+					<th>Preconditions:</th>
+					<td style="width: 15cm;">
+						<ul>
+							<li>
+								Manager must be logged in
+							</li>
+							<li>
+								Maintenance technicians must be avaivable
+							</li>
+						</ul>
+					</td>
+				</tr>
+				<tr>
+					<th>Postconditions:</th>
+					<td style="width: 15cm;">
+						<ul>
+							<li>
+								New task has been added
+							</li>
+						</ul>
+					</td>
+				</tr>
+				<tr>
+					<th>Actors:</th>
+					<td style="width: 15cm;">
+						<ul>
+							<li>
+								Manager
+							</li>
+							<li>
+								Maintenance Technicians
+							</li>
+						</ul>
+					</td>
+				</tr>
+				<tr>
+					<th>Main flow:</th>
+					<td style="width: 15cm;">
+						<ol>
+							<li>
+								Manager chose "Add new task" option
+							</li>
+							<li>
+								System displays "Add new task" form
+							</li>
+							<li>
+								Manager pick avaivable Maintenance Technician
+							</li>
+							<li>
+								Manager selects the car for which the task applies
+							</li>
+							<li>
+								Manager input information about task
+							</li>
+							<li>
+								Manager sends form to system
+							</li>
+							<li>
+								System validate data
+							</li>
+							<li>
+								System adds a new task
+							</li>
+						</ol>
+					</td>
+				</tr>
+				<tr>
+					<th>Alternate flow:</th>
+					<td style="width: 15cm;">
+						<ul>
+							<li>
+								<span class="number">7</span>
+								<span class="condition">Not all required fields have been entered</span>
+								<span class="reaction-additional"></span>
+								<span class="reaction-type">GOTO</span>
+								<span class="reaction-goto">2</span>
+							</li>
+						</ul>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<br /><br />
+		<table border="1">
+			<tbody>
+				<tr>
+					<th>Author name:</th>
+					<td style="width: 15cm;">
+						Jakub
+					</td>
+				</tr>
+				<tr>
+					<th>Author surname:</th>
+					<td style="width: 15cm;">
+						Sikora
+					</td>
+				</tr>
+				<tr>
+					<th>Author group:</th>
+					<td style="width: 15cm;">
+						Group 1
+					</td>
+				</tr>
+				<tr>
+					<th>Subject:</th>
+					<td style="width: 15cm;">
+						Car Rental Managment System
+					</td>
+				</tr>
+				<tr>
+					<th>Use Case:</th>
+					<td style="width: 15cm;">
+						Car repair task status update
+					</td>
+				</tr>
+				<tr>
+					<th>Language:</th>
+					<td style="width: 15cm;">
+						English
+					</td>
+				</tr>
+				<tr>
+					<th>Preconditions:</th>
+					<td style="width: 15cm;">
+						<ul>
+							<li>
+								Maintenance technician must be logged in
+							</li>
+							<li>
+								Task cannot be marked as completed
+							</li>
+							<li>
+								Task must be added previously
+							</li>
+						</ul>
+					</td>
+				</tr>
+				<tr>
+					<th>Postconditions:</th>
+					<td style="width: 15cm;">
+						<ul>
+							<li>
+								Task status has been updated
+							</li>
+							<li>
+								If task marked as succesfully finished, car is avaivable to rent
+							</li>
+						</ul>
+					</td>
+				</tr>
+				<tr>
+					<th>Actors:</th>
+					<td style="width: 15cm;">
+						<ul>
+							<li>
+								Maintenance Technician
+							</li>
+						</ul>
+					</td>
+				</tr>
+				<tr>
+					<th>Main flow:</th>
+					<td style="width: 15cm;">
+						<ol>
+							<li>
+								The employee chooses a specific task
+							</li>
+							<li>
+								System displays "Update task" form
+							</li>
+							<li>
+								The employee updates details in form
+							</li>
+							<li>
+								The employee sends form to system
+							</li>
+							<li>
+								System validates data
+							</li>
+							<li>
+								System updates task status
+							</li>
+							<li>
+								System adds the vehicle to the pool of available cars
+							</li>
+						</ol>
+					</td>
+				</tr>
+				<tr>
+					<th>Alternate flow:</th>
+					<td style="width: 15cm;">
+						<ul>
+							<li>
+								<span class="number">5</span>
+								<span class="condition">Not all required fields have been entered</span>
+								<span class="reaction-additional"></span>
+								<span class="reaction-type">GOTO</span>
+								<span class="reaction-goto">2</span>
+							</li>
+							<li>
+								<span class="number">6</span>
+								<span class="condition">If task marked as succesfully repaired</span>
+								<span class="reaction-additional"></span>
+								<span class="reaction-type">GOTO</span>
+								<span class="reaction-goto">7</span>
+							</li>
+						</ul>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<br /><br />
+		<table border="1">
+			<tbody>
+				<tr>
+					<th>Author name:</th>
+					<td style="width: 15cm;">
+						Karol
+					</td>
+				</tr>
+				<tr>
+					<th>Author surname:</th>
+					<td style="width: 15cm;">
+						Wójcik
+					</td>
+				</tr>
+				<tr>
+					<th>Author group:</th>
+					<td style="width: 15cm;">
+						Group 2
+					</td>
+				</tr>
+				<tr>
+					<th>Subject:</th>
+					<td style="width: 15cm;">
+						Car Rental Management System
+					</td>
+				</tr>
+				<tr>
+					<th>Use Case:</th>
+					<td style="width: 15cm;">
+						Rent vehicle on-line
+					</td>
+				</tr>
+				<tr>
+					<th>Language:</th>
+					<td style="width: 15cm;">
+						English
+					</td>
+				</tr>
+				<tr>
+					<th>Preconditions:</th>
+					<td style="width: 15cm;">
+						<ul>
+							<li>
+								User is logged in
+							</li>
+							<li>
+								There are avaliable vehicles
+							</li>
+						</ul>
+					</td>
+				</tr>
+				<tr>
+					<th>Postconditions:</th>
+					<td style="width: 15cm;">
+						<ul>
+							<li>
+								Vehicle is flagged as reserved
+							</li>
+						</ul>
+					</td>
+				</tr>
+				<tr>
+					<th>Actors:</th>
+					<td style="width: 15cm;">
+						<ul>
+							<li>
+								Client
+							</li>
+						</ul>
+					</td>
+				</tr>
+				<tr>
+					<th>Main flow:</th>
+					<td style="width: 15cm;">
+						<ol>
+							<li>
+								User selects search for vehicle option
+							</li>
+							<li>
+								System displays all avaliable vehicles
+							</li>
+							<li>
+								User enters filters eg. rent dates and desired attributes
+							</li>
+							<li>
+								System shows results of filltering
+							</li>
+							<li>
+								User selects vehicle
+							</li>
+							<li>
+								System temporary locks vehicle for other reservations
+							</li>
+							<li>
+								System shows form with all details of car, dates and price
+							</li>
+							<li>
+								User accepts form
+							</li>
+							<li>
+								Vehicle is flagged as reserved
+							</li>
+						</ol>
+					</td>
+				</tr>
+				<tr>
+					<th>Alternate flow:</th>
+					<td style="width: 15cm;">
+						<ul>
+							<li>
+								<span class="number">3</span>
+								<span class="condition">There are no avaliable vehicles within these conditions</span>
+								<span class="reaction-additional"></span>
+								<span class="reaction-type">GOTO</span>
+								<span class="reaction-goto">2</span>
+							</li>
+							<li>
+								<span class="number">5</span>
+								<span class="condition">Vehicle has been marked as reserved in the meantime</span>
+								<span class="reaction-additional"></span>
+								<span class="reaction-type">GOTO</span>
+								<span class="reaction-goto">4</span>
+							</li>
+							<li>
+								<span class="number">8</span>
+								<span class="condition">User dosen't accept</span>
+								<span class="reaction-additional">- Vehicle is unlocked</span>
+								<span class="reaction-type">GOTO</span>
+								<span class="reaction-goto">4</span>
+							</li>
+						</ul>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<br><br>
+		<table border="1">
+			<tbody>
+				<tr>
+					<th>Author name:</th>
+					<td style="width: 15cm;">
+						Karol
+					</td>
+				</tr>
+				<tr>
+					<th>Author surname:</th>
+					<td style="width: 15cm;">
+						Wójcik
+					</td>
+				</tr>
+				<tr>
+					<th>Author group:</th>
+					<td style="width: 15cm;">
+						Group 2
+					</td>
+				</tr>
+				<tr>
+					<th>Subject:</th>
+					<td style="width: 15cm;">
+						Car Rental Management System
+					</td>
+				</tr>
+				<tr>
+					<th>Use Case:</th>
+					<td style="width: 15cm;">
+						Process a car rental
+					</td>
+				</tr>
+				<tr>
+					<th>Language:</th>
+					<td style="width: 15cm;">
+						Polish
+					</td>
+				</tr>
+				<tr>
+					<th>Preconditions:</th>
+					<td style="width: 15cm;">
+						<ul>
+							<li>
+								Reservation for vehicle has been made on-line
+							</li>
+						</ul>
+					</td>
+				</tr>
+				<tr>
+					<th>Postconditions:</th>
+					<td style="width: 15cm;">
+						<ul>
+							<li>
+								Vehicle has been rented
+							</li>
+						</ul>
+					</td>
+				</tr>
+				<tr>
+					<th>Actors:</th>
+					<td style="width: 15cm;">
+						<ul>
+							<li>
+								Client
+							</li>
+							<li>
+								Customer Service Representative
+							</li>
+						</ul>
+					</td>
+				</tr>
+				<tr>
+					<th>Main flow:</th>
+					<td style="width: 15cm;">
+						<ol>
+							<li>
+								Client approches front desk
+							</li>
+							<li>
+								Customer Service Representative checks reservation's details
+							</li>
+							<li>
+								Client and Representative go to parking spot of vehicle
+							</li>
+							<li>
+								Car is inspected for any problems
+							</li>
+							<li>
+								Client is given documents, keys and instructions
+							</li>
+							<li>
+								Client takes vehicle
+							</li>
+						</ol>
+					</td>
+				</tr>
+				<tr>
+					<th>Alternate flow:</th>
+					<td style="width: 15cm;">
+						<ul>
+							<li>
+								<span class="number">2</span>
+								<span class="condition">reservation is incorrect </span>
+								<span class="reaction-additional"></span>
+								<span class="reaction-type">END FLOW</span>
+								<span class="reaction-goto"></span>
+							</li>
+							<li>
+								<span class="number">4</span>
+								<span class="condition">there are problems with vehicle</span>
+								<span class="reaction-additional">Vehicle will be flagged for maintanence </span>
+								<span class="reaction-type">END FLOW</span>
+								<span class="reaction-goto"></span>
+							</li>
+						</ul>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+
 	</article>
+
+
 
 	
 	<article id="activity-diagrams">
