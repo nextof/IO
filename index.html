@@ -822,6 +822,91 @@
 			</tbody>
 		</table>
 		</ul>
+		<table border="1">
+  			<tbody>
+    				<tr>
+      					<th>Author name:</th>
+      					<td style="width: 15cm;"> Patryk </td>
+    				</tr>
+    				<tr>
+      					<th>Author surname:</th>
+      					<td style="width: 15cm;"> Sobczyński </td>
+    				</tr>
+    				<tr>
+      					<th>Author group:</th>
+      					<td style="width: 15cm;"> Group 1 </td>
+    				</tr>
+    				<tr>
+      					<th>Subject:</th>
+      					<td style="width: 15cm;"> Car Rental Management System </td>
+  				</tr>
+   				<tr>
+      					<th>Use Case:</th>
+      					<td style="width: 15cm;"> Add User role </td>
+    				</tr>
+    				<tr>
+      					<th>Language:</th>
+      					<td style="width: 15cm;"> English </td>
+    				</tr>
+    				<tr>
+      					<th>Preconditions:</th>
+      					<td style="width: 15cm;">
+        				<ul>
+          					<li> User need to be logeed in to the system </li>
+          					<li> User need to have a "Administartor" role </li>
+       					</ul>
+      					</td>
+    				</tr>
+    				<tr>
+      					<th>Postconditions:</th>
+     					<td style="width: 15cm;">
+        				<ul>
+          					<li> The account have new role </li>
+        				</ul>
+      					</td>
+    				</tr>
+    				<tr>
+      					<th>Actors:</th>
+      					<td style="width: 15cm;">
+        				<ul>
+          					<li> Administaror </li>
+          					<li> User </li>
+        				</ul>
+      					</td>
+    				</tr>
+    				<tr>
+      					<th>Main flow:</th>
+      					<td style="width: 15cm;">
+        					<ol>
+          						<li> Administrator picks user table </li>
+          						<li> System displays list of all users </li>
+          						<li> Administrator click on a user record </li>
+          						<li> System displays user account settings </li>
+          						<li> Administrator picks "Add new role" function </li>
+         						<li> System displays all available roles for user and existing user roles </li>
+          						<li> Administrator picks roles to add and confirm the operation </li>
+          						<li> System verifies that the user does not have this role already </li>
+          						<li> System assings role for a user </li>
+          						<li> System sends to user a notification about new role </li>
+        					</ol>
+      					</td>
+    				</tr>
+   				<tr>
+      					<th>Alternate flow:</th>
+      						<td style="width: 15cm;">
+        					<ul>
+          						<li>
+            							<span class="number">8</span>
+            							<span class="condition">User already have this role</span>
+            							<span class="reaction-additional"></span>
+            							<span class="reaction-type">GOTO</span>
+            							<span class="reaction-goto">5</span>
+          						</li>
+        					</ul>
+      						</td>
+   				</tr>
+  			</tbody>
+		</table>
 	</article>
 
 
