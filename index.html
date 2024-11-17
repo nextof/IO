@@ -11,7 +11,7 @@
 
 	<link rel="stylesheet" href="https://kronos.tu.kielce.pl/uml/vendor/prism.css" data-noprefix />
 	<link rel="stylesheet" href="https://kronos.tu.kielce.pl/uml/css/raport.css" data-noprefix />
-		
+
 	</style>
 </head>
 <body>
@@ -28,73 +28,88 @@
 	</ul>
 
 	<article id="description-polish">
-
 	</article>
 
-	
+
 	<article id="description-english">
 		<h2>1. System description</h2>
 		<ul>
 			<h3>1.1 Basic Information about the System</h3>
-			
-			<p>The <strong>Car Rental Management System</strong> is comprehensive software designed to manage all aspects of a car rental business, integrating internal processes with customer interactions. 
-			The system covers <strong>vehicle reservations</strong>, <strong>rentals</strong>, <strong>returns</strong>, <strong>fleet maintenance</strong>, <strong>staff management</strong>, 
-			and real-time <strong>vehicle status monitoring</strong>. It also includes integrated <strong>billing</strong> and <strong>payment</strong> handling, enabling easy transaction management.
-			With this integration, the system provides centralized access to information, enabling efficient operations.</p>
-			</ul>
-			<ul>
+
+			<p>
+				The <strong>Car Rental Management System</strong> is comprehensive software designed to manage all aspects of a car rental business, integrating internal processes with customer interactions.
+				The system covers <strong>vehicle reservations</strong>, <strong>rentals</strong>, <strong>returns</strong>, <strong>fleet maintenance</strong>, <strong>staff management</strong>,
+				and real-time <strong>vehicle status monitoring</strong>. It also includes integrated <strong>billing</strong> and <strong>payment</strong> handling, enabling easy transaction management.
+				With this integration, the system provides centralized access to information, enabling efficient operations.
+			</p>
+		</ul>
+		<ul>
 			<h3>1.2 Description of the Modeled Reality</h3>
-			
-				<li><strong>Vehicle</strong>: Each vehicle in the fleet has attributes such as make, model, production year, license plate, vehicle type (e.g., SUV, sedan, hatchback), mileage, 
-				technical condition, and a unique identifier. Vehicles can be rented, reserved, or flagged for maintenance based on their condition.</li>
-				<li><strong>Client</strong>: Each client profile includes personal details, rental history, reservations, billing information, and any restrictions based on prior rental behavior.</li>
-				<li><strong>Employee</strong>: Employees of the car rental company are divided into roles such as Customer Service Representatives, Maintenance Technicians, Managers, and Administrators.</li>
-				<li><strong>Shift and Schedule Management</strong>: Managers create shift schedules and assign specific responsibilities to employees. 
-				The system records shift start and end times, assigned tasks, and employee availability.</li>
-				<li><strong>Billing and Payments</strong>: The system calculates rental costs based on vehicle type, rental duration, mileage, additional services, and taxes. 
-				Payment options include credit cards, debit cards, and electronic payments. Late fees, penalties, or discounts are automatically applied based on company policy and client rental history.</li>
-				<li><strong>Operations</strong>: Core operations include vehicle reservation, rental, return, cancelation, maintenance scheduling, vehicle availability updates, and service record tracking.</li>
-			</ul>
-<ul>
+
+			<li>
+				<strong>Vehicle</strong>: Each vehicle in the fleet has attributes such as make, model, production year, license plate, vehicle type (e.g., SUV, sedan, hatchback), mileage,
+				technical condition, and a unique identifier. Vehicles can be rented, reserved, or flagged for maintenance based on their condition.
+			</li>
+			<li><strong>Client</strong>: Each client profile includes personal details, rental history, reservations, billing information, and any restrictions based on prior rental behavior.</li>
+			<li><strong>Employee</strong>: Employees of the car rental company are divided into roles such as Customer Service Representatives, Maintenance Technicians, Managers, and Administrators.</li>
+			<li>
+				<strong>Shift and Schedule Management</strong>: Managers create shift schedules and assign specific responsibilities to employees.
+				The system records shift start and end times, assigned tasks, and employee availability.
+			</li>
+			<li>
+				<strong>Billing and Payments</strong>: The system calculates rental costs based on vehicle type, rental duration, mileage, additional services, and taxes.
+				Payment options include credit cards, debit cards, and electronic payments. Late fees, penalties, or discounts are automatically applied based on company policy and client rental history.
+			</li>
+			<li><strong>Operations</strong>: Core operations include vehicle reservation, rental, return, cancelation, maintenance scheduling, vehicle availability updates, and service record tracking.</li>
+		</ul>
+		<ul>
 			<h3>1.3 User Types</h3>
-			
-				<li><strong>Clients</strong>: Can browse available vehicles, make reservations, rent vehicles, manage their rental history, and process payments.</li>
-				<li><strong>Customer Service Representatives</strong>: Assist with client reservations, process rentals, handle returns, and manage payments. They can make reservations directly at the front desk for clients who arrive in person.</li>
-				<li><strong>Maintenance Technicians</strong>: Track repair statuses, log service information, and update vehicle readiness.</li>
-				<li><strong>Managers</strong>: Responsible for employee oversight, approving staffing decisions, managing shift schedules, and assigning tasks. They also handle escalated customer issues and approve specific client requests.</li>
-				<li><strong>Administrators</strong>: Manage system configurations, user roles, and permissions. They monitor security, oversee data access, and handle account setups for new employees.</li>
-			</ul>
-			<ul>
+
+			<li><strong>Clients</strong>: Can browse available vehicles, make reservations, rent vehicles, manage their rental history, and process payments.</li>
+			<li><strong>Customer Service Representatives</strong>: Assist with client reservations, process rentals, handle returns, and manage payments. They can make reservations directly at the front desk for clients who arrive in person.</li>
+			<li><strong>Maintenance Technicians</strong>: Track repair statuses, log service information, and update vehicle readiness.</li>
+			<li><strong>Managers</strong>: Responsible for employee oversight, approving staffing decisions, managing shift schedules, and assigning tasks. They also handle escalated customer issues and approve specific client requests.</li>
+			<li><strong>Administrators</strong>: Manage system configurations, user roles, and permissions. They monitor security, oversee data access, and handle account setups for new employees.</li>
+		</ul>
+		<ul>
 			<h3>1.4 System Functionality</h3>
-			
-				<li><strong>Vehicle Reservation</strong>: A client (or a Customer Service Representative on their behalf) selects a vehicle, chooses rental dates, and confirms the reservation. 
-				The system then marks the vehicle as reserved for the specified period.</li>
-				<li><strong>Vehicle Rental</strong>: When the client arrives, the Customer Service Representative verifies their profile, confirms the reservation, and initiates the rental. 
-				The vehicle status is then updated as rented.</li>
-				<li><strong>Vehicle Return</strong>: Upon completion, the vehicle is returned, and the status is updated to available. The representative logs any extra charges, fuel levels, and vehicle condition.</li>
-				<li><strong>Reservation Cancelation</strong>: A client can cancel reservation before picking up the vehicle, extra charges will be added depending of time remaining to pick-up</li>
-				<li><strong>Billing and Payments</strong>: At the end of each rental, the system generates an invoice based on the rental agreement. 
-				Charges include base fees, taxes, and any additional costs, such as mileage overage or late fees. Clients can pay directly through the system or at the front desk. 
-				Payment status and history are updated in the client profile, and receipts are issued electronically.</li>
-				<li><strong>Vehicle Maintenance</strong>: Maintenance Technicians update service records for each vehicle, flagging those under maintenance as unavailable.</li>
-				<li><strong>Shift and Schedule Management</strong>: Managers manage employee schedules, assigning specific shifts and tasks. 
-				The system logs shift start and end times, task completion, and employee availability. It also provides reports on staffing and usage, helping Managers to optimize resource allocation.</li>
-				<li><strong>User Management and Role Assignment</strong>: Administrators assign roles, set permissions, and handle employee onboarding.</li>
-			</ul>
-			<ul>
+
+			<li>
+				<strong>Vehicle Reservation</strong>: A client (or a Customer Service Representative on their behalf) selects a vehicle, chooses rental dates, and confirms the reservation.
+				The system then marks the vehicle as reserved for the specified period.
+			</li>
+			<li>
+				<strong>Vehicle Rental</strong>: When the client arrives, the Customer Service Representative verifies their profile, confirms the reservation, and initiates the rental.
+				The vehicle status is then updated as rented.
+			</li>
+			<li><strong>Vehicle Return</strong>: Upon completion, the vehicle is returned, and the status is updated to available. The representative logs any extra charges, fuel levels, and vehicle condition.</li>
+			<li><strong>Reservation Cancelation</strong>: A client can cancel reservation before picking up the vehicle, extra charges will be added depending of time remaining to pick-up</li>
+			<li>
+				<strong>Billing and Payments</strong>: At the end of each rental, the system generates an invoice based on the rental agreement.
+				Charges include base fees, taxes, and any additional costs, such as mileage overage or late fees. Clients can pay directly through the system or at the front desk.
+				Payment status and history are updated in the client profile, and receipts are issued electronically.
+			</li>
+			<li><strong>Vehicle Maintenance</strong>: Maintenance Technicians update service records for each vehicle, flagging those under maintenance as unavailable.</li>
+			<li>
+				<strong>Shift and Schedule Management</strong>: Managers manage employee schedules, assigning specific shifts and tasks.
+				The system logs shift start and end times, task completion, and employee availability. It also provides reports on staffing and usage, helping Managers to optimize resource allocation.
+			</li>
+			<li><strong>User Management and Role Assignment</strong>: Administrators assign roles, set permissions, and handle employee onboarding.</li>
+		</ul>
+		<ul>
 			<h3>1.5 Non-Functional Requirements</h3>
-			
-				<li><strong>Performance</strong>: The system supports real-time bookings and fleet updates, even under high transaction volumes.</li>
-				<li><strong>User Interface</strong>: The interface should be user-friendly, mobile-responsive, and tailored to each user role, allowing easy navigation to relevant functions.</li>
-				<li><strong>Security and Access Control</strong>: Security protocols protect client data and restrict access based on user roles. System logs track all actions for accountability.</li>
-			</ul>
+
+			<li><strong>Performance</strong>: The system supports real-time bookings and fleet updates, even under high transaction volumes.</li>
+			<li><strong>User Interface</strong>: The interface should be user-friendly, mobile-responsive, and tailored to each user role, allowing easy navigation to relevant functions.</li>
+			<li><strong>Security and Access Control</strong>: Security protocols protect client data and restrict access based on user roles. System logs track all actions for accountability.</li>
+		</ul>
 	</article>
-	
+
 
 	<article id="dictionary-english">
 		<h2>2. Dictionary</h2>
 		<ul>
-			
+
 			<li><strong>Vehicle</strong>:  car or similar mode of transport within the rental company’s fleet. Each vehicle has specific details, such as make, model, year, license plate, mileage, and condition status, which are tracked in the system.</li>
 			<li><strong>Client</strong>: An individual or organization renting a vehicle from the company. Client profiles include personal information, rental history, billing records, and any relevant restrictions.</li>
 			<li><strong>Fleet</strong>: The complete collection of vehicles owned by the rental company and available for rental. The fleet is managed within the system, tracking availability, maintenance schedules, and rental status for each vehicle.</li>
@@ -103,20 +118,22 @@
 			<li><strong>Return</strong>: The process by which a client returns a rented vehicle, allowing for an inspection and status update in the system. Return procedures also involve recording fuel levels, any damages, and finalizing billing.</li>
 			<li><strong>Customer Service Representative</strong>: An employee who assists clients with reservations, rental processing, returns, and payments. They interact directly with clients, managing reservations both online and in person.</li>
 			<li><strong>Maintenance Technicians</strong>:  An employee who is responsible for maintenance of the fleet, ensures vehicle safety and performance, flaggs in the system when vehicles are unavailable for rental due to service needs.</li>
-			<li><strong>Manager</strong>: An employee responsible for overseeing other staff, managing shifts, assigning tasks, and handling escalated issues. Managers have permissions to approve staffing decisions, 
-			assign specific employee roles, and optimize resource allocation within the system.</li>
+			<li>
+				<strong>Manager</strong>: An employee responsible for overseeing other staff, managing shifts, assigning tasks, and handling escalated issues. Managers have permissions to approve staffing decisions,
+				assign specific employee roles, and optimize resource allocation within the system.
+			</li>
 			<li><strong>Administrator</strong>: An employee responsible for managing system settings, user permissions, security, and data access. Administrators oversee the integrity of the system, handle role assignments, and manage data control policies.</li>
 			<li><strong>Staff</strong>: All employees within the rental company, including Customer Service Representatives, Maintenance Technicians, Managers, and Administrators. Each staff member has specific permissions and responsibilities within the system.</li>
-			
+
 			<li><strong>Billing</strong>: The process of calculating and invoicing costs associated with a rental, including base fees, additional charges, taxes, and any penalties. Billing information is associated with each client profile and updated upon rental completion.</li>
 			<li><strong>Payment</strong>: The transaction that completes the rental process, with clients settling outstanding charges. Payments can be made directly through the system or at the front desk, and are logged in client billing records.</li>
 			<li><strong>User Interface</strong>: The visual and interactive components of the system that allow users to navigate, input, and access information. The interface is tailored to different user roles, providing a clear and efficient experience for all employees and clients.</li>
-    
+
 		</ul>
 	</article>
-	
 
-	
+
+
 	<article id="user-stories-english">
 		<h2>3. User Stories</h2>
 		<ul>
@@ -125,22 +142,22 @@
 			<p>As a client, I want to make a reservation for a vehicle so that I can ensure it is available when I need it.</p>
 			<p>As a client, I want to manage my rental history so that I can track my previous rentals and expenses.</p>
 			<p>As a client, I want to cancel my reservation so that I can avoid any unnecessary charges if my plans change.</p>
-			
+
 			<h4>3.2 Customer Service Representative User Stories</h4>
 			<p>As a Customer Service Representative, I want to process vehicle rentals and returns quickly so that clients have a smooth and efficient experience.</p>
 			<p>As a Customer Service Representative, I want to log any additional charges for clients during vehicle returns so that their invoices are accurate and complete.</p>
 			<p>As a Customer Service Representative, I want to assisst clients in making reservations in person so that the proces is as accessible as possible </p>
-			
+
 			<h4>3.3 Maintenance Technician User Stories</h4>
 			<p>As a Maintenance Technician, I want to update the service records for each vehicle so that I can keep track of their maintenance history.</p>
 			<p></p>As a Maintenance Technician, I want to flag vehicles that are under maintenance so that other employees know they are unavailable for rental.</p>
 			<p>As a Maintenance Technician, I want to view the status of vehicle repairs so that I can inform management when vehicles will be ready for rental.</p>
-			
+
 			<h4>3.4 Manager User Stories</h4>
 			<p>As a manager, I want to approve staffing decisions so that I can maintain a well-functioning team.</p>
 			<p>As a manager, I want to handle escalated customer issues so that I can resolve conflicts and ensure client satisfaction.</p>
 			<p>As a manager, I want to assign specifc tasks to employees so that problems are delt with as soon as possible </p>
-			
+
 			<h4>3.5 Administrator User Stories</h4>
 			<p>As an administrator, I want to manage user roles and permissions so that I can ensure security and proper access control within the system.</p>
 			<p>As an administrator, I want to monitor data access logs so that I can maintain system security and address any potential issues.</p>
@@ -148,10 +165,10 @@
 		</ul>
 	</article>
 
-	
+
 	<article id="use-case-diagram">
 		<h2>4. Use case diagram</h2><br><br>
-		<p class ="uml">
+		<p class="uml">
 			@startuml
 			left to right direction
 
@@ -169,7 +186,7 @@
 			Maintenance_Technicians -- (Track repair statuses)
 			Maintenance_Technicians -- (Log service information)
 			Maintenance_Technicians -- (Update vehicle readiness)
-			
+
 			Manager -- (Oversee employees)
 			Manager -- (Approve staffing decisions)
 			Manager -- (Manage shift schedules)
@@ -177,7 +194,7 @@
 			Manager -- (Handle escalated customer issues)
 			Manager -- (Approve specific client requests)
 
-			
+
 			Manager --|> Customer_Service
 			Manager --|> Maintenance_Technicians
 
@@ -193,731 +210,738 @@
 			(Rent vehicles) <.. (Make reservations) : <<extend>>
 			(Process rentals) ..> (Assist with client reservations) : <<include>>
 			(Make reservations) ..> (Process payments) : <<include>>
-				
+
 			@enduml
 		</p>
 	</article>
-	
+
 	<article id="use-case-scenarios-english">
-		<h2>5. Use case scenarios</h2> 
-<ul>
-	<h3>5.1 Task assignment</h3>
-		<table border="1">
-			<tbody>
-				<tr>
-					<th>Author name:</th>
-					<td style="width: 15cm;">
-						Jakub
-					</td>
-				</tr>
-				<tr>
-					<th>Author surname:</th>
-					<td style="width: 15cm;">
-						Sikora
-					</td>
-				</tr>
-				<tr>
-					<th>Author group:</th>
-					<td style="width: 15cm;">
-						Group 2
-					</td>
-				</tr>
-				<tr>
-					<th>Subject:</th>
-					<td style="width: 15cm;">
-						Car Rental Managment System
-					</td>
-				</tr>
-				<tr>
-					<th>Use Case:</th>
-					<td style="width: 15cm;">
-						Task assignment
-					</td>
-				</tr>
-				<tr>
-					<th>Language:</th>
-					<td style="width: 15cm;">
-						English
-					</td>
-				</tr>
-				<tr>
-					<th>Preconditions:</th>
-					<td style="width: 15cm;">
-						<ul>
-							<li>
-								Manager must be logged in
-							</li>
-							<li>
-								Maintenance technicians must be available
-							</li>
-						</ul>
-					</td>
-				</tr>
-				<tr>
-					<th>Postconditions:</th>
-					<td style="width: 15cm;">
-						<ul>
-							<li>
-								New task has been added
-							</li>
-						</ul>
-					</td>
-				</tr>
-				<tr>
-					<th>Actors:</th>
-					<td style="width: 15cm;">
-						<ul>
-							<li>
-								Manager
-							</li>
-							<li>
-								Maintenance Technicians
-							</li>
-						</ul>
-					</td>
-				</tr>
-				<tr>
-					<th>Main flow:</th>
-					<td style="width: 15cm;">
-						<ol>
-							<li>
-								Manager chose "Add new task" option
-							</li>
-							<li>
-								System displays "Add new task" form
-							</li>
-							<li>
-								Manager pick available Maintenance Technician
-							</li>
-							<li>
-								System validate data of selected Maintenance Technician
-							</li>
-							<li>
-								Manager selects the car for which the task applies
-							</li>
-							<li>
-								System validate data of selected car
-							</li>
-							<li>
-								Manager input information about task
-							</li>
-							<li>
-								System validate data of inputted information
-							</li>
-							<li>
-								Manager sends form to system
-							</li>
-							<li>
-								System adds a new task
-							</li>
-						</ol>
-					</td>
-				</tr>
-				<tr>
-					<th>Alternate flow:</th>
-					<td style="width: 15cm;">
-						<ul>
-							<li>
-								<span class="number">4</span>
-								<span class="condition">The technician has not been selected or technician availability status has changed to unavailable meantime</span>
-								<span class="reaction-additional"></span>
-								<span class="reaction-type">GOTO</span>
-								<span class="reaction-goto">3</span>
-							</li>
-							<li>
-								<span class="number">6</span>
-								<span class="condition">The car has not been selected</span>
-								<span class="reaction-additional"></span>
-								<span class="reaction-type">GOTO</span>
-								<span class="reaction-goto">5</span>
-							</li>
-							<li>
-								<span class="number">8</span>
-								<span class="condition">Task information has not been entered</span>
-								<span class="reaction-additional"></span>
-								<span class="reaction-type">GOTO</span>
-								<span class="reaction-goto">7</span>
-							</li>
-						</ul>
-					</td>
-				</tr>
-			</tbody>
-		</table>
-	</ul>
+		<h2>5. Use case scenarios</h2>
 		<ul>
-		<br />
-		<h3>5.2 Car repair task status update</h3>
+			<h3>5.1 Task assignment</h3>
+			<table border="1">
+				<tbody>
+					<tr>
+						<th>Author name:</th>
+						<td style="width: 15cm;">
+							Jakub
+						</td>
+					</tr>
+					<tr>
+						<th>Author surname:</th>
+						<td style="width: 15cm;">
+							Sikora
+						</td>
+					</tr>
+					<tr>
+						<th>Author group:</th>
+						<td style="width: 15cm;">
+							Group 2
+						</td>
+					</tr>
+					<tr>
+						<th>Subject:</th>
+						<td style="width: 15cm;">
+							Car Rental Managment System
+						</td>
+					</tr>
+					<tr>
+						<th>Use Case:</th>
+						<td style="width: 15cm;">
+							Task assignment
+						</td>
+					</tr>
+					<tr>
+						<th>Language:</th>
+						<td style="width: 15cm;">
+							English
+						</td>
+					</tr>
+					<tr>
+						<th>Preconditions:</th>
+						<td style="width: 15cm;">
+							<ul>
+								<li>
+									Manager must be logged in
+								</li>
+								<li>
+									Maintenance technicians must be available
+								</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>Postconditions:</th>
+						<td style="width: 15cm;">
+							<ul>
+								<li>
+									New task has been added
+								</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>Actors:</th>
+						<td style="width: 15cm;">
+							<ul>
+								<li>
+									Manager
+								</li>
+								<li>
+									Maintenance Technicians
+								</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>Main flow:</th>
+						<td style="width: 15cm;">
+							<ol>
+								<li>
+									Manager chose "Add new task" option
+								</li>
+								<li>
+									System displays "Add new task" form
+								</li>
+								<li>
+									Manager pick available Maintenance Technician
+								</li>
+								<li>
+									Manager selects the car for which the task applies
+								</li>
+								<li>
+									Manager input information about task
+								</li>
+								<li>
+									Manager sends form to system
+								</li>
+								<li>
+									System validate data
+								</li>
+								<li>
+									System adds a new task
+								</li>
+							</ol>
+						</td>
+					</tr>
+					<tr>
+						<th>Alternate flow:</th>
+						<td style="width: 15cm;">
+							<ul>
+								<li>
+									<span class="number">7</span>
+									<span class="condition">The technician has not been selected or the availability status has changed to unavailable</span>
+									<span class="reaction-additional"></span>
+									<span class="reaction-type">GOTO</span>
+									<span class="reaction-goto">3</span>
+								</li>
+								<li>
+									<span class="number">7</span>
+									<span class="condition">The car has not been selected</span>
+									<span class="reaction-additional"></span>
+									<span class="reaction-type">GOTO</span>
+									<span class="reaction-goto">4</span>
+								</li>
+								<li>
+									<span class="number">7</span>
+									<span class="condition">Task information has not been entered</span>
+									<span class="reaction-additional"></span>
+									<span class="reaction-type">GOTO</span>
+									<span class="reaction-goto">5</span>
+								</li>
+							</ul>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</ul>
+		<ul>
+			<br />
+			<h3>5.2 Car repair task status update</h3>
 
-		<table border="1">
-			<tbody>
-				<tr>
-					<th>Author name:</th>
-					<td style="width: 15cm;">
-						Jakub
-					</td>
-				</tr>
-				<tr>
-					<th>Author surname:</th>
-					<td style="width: 15cm;">
-						Sikora
-					</td>
-				</tr>
-				<tr>
-					<th>Author group:</th>
-					<td style="width: 15cm;">
-						Group 2
-					</td>
-				</tr>
-				<tr>
-					<th>Subject:</th>
-					<td style="width: 15cm;">
-						Car Rental Managment System
-					</td>
-				</tr>
-				<tr>
-					<th>Use Case:</th>
-					<td style="width: 15cm;">
-						Car repair task status update
-					</td>
-				</tr>
-				<tr>
-					<th>Language:</th>
-					<td style="width: 15cm;">
-						English
-					</td>
-				</tr>
-				<tr>
-					<th>Preconditions:</th>
-					<td style="width: 15cm;">
-						<ul>
-							<li>
-								Maintenance technician must be logged in
-							</li>
-							<li>
-								Task cannot be marked as completed
-							</li>
-							<li>
-								Task must be added previously
-							</li>
-						</ul>
-					</td>
-				</tr>
-				<tr>
-					<th>Postconditions:</th>
-					<td style="width: 15cm;">
-						<ul>
-							<li>
-								Task status has been updated
-							</li>
-							<li>
-								If task marked as succesfully finished, car is available to rent
-							</li>
-						</ul>
-					</td>
-				</tr>
-				<tr>
-					<th>Actors:</th>
-					<td style="width: 15cm;">
-						<ul>
-							<li>
-								Maintenance Technician
-							</li>
-						</ul>
-					</td>
-				</tr>
-				<tr>
-					<th>Main flow:</th>
-					<td style="width: 15cm;">
-						<ol>
-							<li>
-								The employee chooses a specific task
-							</li>
-							<li>
-								System displays "Update task" form
-							</li>
-							<li>
-								The employee updates details in form
-							</li>
-							<li>
-								The employee sends form to system
-							</li>
-							<li>
-								System validates data
-							</li>
-							<li>
-								System updates task status
-							</li>
-						</ol>
-					</td>
-				</tr>
-				<tr>
-					<th>Alternate flow:</th>
-					<td style="width: 15cm;">
-						<ul>
-							<li>
-								<span class="number">5</span>
-								<span class="condition">Not all required fields have been entered</span>
-								<span class="reaction-additional"></span>
-								<span class="reaction-type">GOTO</span>
-								<span class="reaction-goto">2</span>
-							</li>
-						</ul>
-					</td>
-				</tr>
-			</tbody>
-		</table></ul>
+			<table border="1">
+				<tbody>
+					<tr>
+						<th>Author name:</th>
+						<td style="width: 15cm;">
+							Jakub
+						</td>
+					</tr>
+					<tr>
+						<th>Author surname:</th>
+						<td style="width: 15cm;">
+							Sikora
+						</td>
+					</tr>
+					<tr>
+						<th>Author group:</th>
+						<td style="width: 15cm;">
+							Group 2
+						</td>
+					</tr>
+					<tr>
+						<th>Subject:</th>
+						<td style="width: 15cm;">
+							Car Rental Managment System
+						</td>
+					</tr>
+					<tr>
+						<th>Use Case:</th>
+						<td style="width: 15cm;">
+							Car repair task status update
+						</td>
+					</tr>
+					<tr>
+						<th>Language:</th>
+						<td style="width: 15cm;">
+							English
+						</td>
+					</tr>
+					<tr>
+						<th>Preconditions:</th>
+						<td style="width: 15cm;">
+							<ul>
+								<li>
+									Maintenance technician must be logged in
+								</li>
+								<li>
+									Task cannot be marked as completed
+								</li>
+								<li>
+									Task must be added previously
+								</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>Postconditions:</th>
+						<td style="width: 15cm;">
+							<ul>
+								<li>
+									Task status has been updated
+								</li>
+								<li>
+									If task marked as succesfully finished, car is available to rent
+								</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>Actors:</th>
+						<td style="width: 15cm;">
+							<ul>
+								<li>
+									Maintenance Technician
+								</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>Main flow:</th>
+						<td style="width: 15cm;">
+							<ol>
+								<li>
+									The employee chooses a specific task
+								</li>
+								<li>
+									System displays "Update task" form
+								</li>
+								<li>
+									The employee updates details in form
+								</li>
+								<li>
+									The employee sends form to system
+								</li>
+								<li>
+									System validates data
+								</li>
+								<li>
+									System updates task status
+								</li>
+							</ol>
+						</td>
+					</tr>
+					<tr>
+						<th>Alternate flow:</th>
+						<td style="width: 15cm;">
+							<ul>
+								<li>
+									<span class="number">5</span>
+									<span class="condition">Not all required fields have been entered</span>
+									<span class="reaction-additional"></span>
+									<span class="reaction-type">GOTO</span>
+									<span class="reaction-goto">2</span>
+								</li>
+							</ul>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</ul>
 		<br /><ul>
-				  <h3>5.3 Rent vehicle on-line</h3>
+			<h3>5.3 Rent vehicle on-line</h3>
 
-		<table border="1">
-			<tbody>
-				<tr>
-					<th>Author name:</th>
-					<td style="width: 15cm;">
-						Karol
-					</td>
-				</tr>
-				<tr>
-					<th>Author surname:</th>
-					<td style="width: 15cm;">
-						Wójcik
-					</td>
-				</tr>
-				<tr>
-					<th>Author group:</th>
-					<td style="width: 15cm;">
-						Group 2
-					</td>
-				</tr>
-				<tr>
-					<th>Subject:</th>
-					<td style="width: 15cm;">
-						Car Rental Management System
-					</td>
-				</tr>
-				<tr>
-					<th>Use Case:</th>
-					<td style="width: 15cm;">
-						Rent vehicle on-line
-					</td>
-				</tr>
-				<tr>
-					<th>Language:</th>
-					<td style="width: 15cm;">
-						English
-					</td>
-				</tr>
-				<tr>
-					<th>Preconditions:</th>
-					<td style="width: 15cm;">
-						<ul>
-							<li>
-								User is logged in
-							</li>
-							<li>
-								There are avaliable vehicles
-							</li>
-						</ul>
-					</td>
-				</tr>
-				<tr>
-					<th>Postconditions:</th>
-					<td style="width: 15cm;">
-						<ul>
-							<li>
-								Vehicle is flagged as reserved
-							</li>
-						</ul>
-					</td>
-				</tr>
-				<tr>
-					<th>Actors:</th>
-					<td style="width: 15cm;">
-						<ul>
-							<li>
-								Client
-							</li>
-						</ul>
-					</td>
-				</tr>
-				<tr>
-					<th>Main flow:</th>
-					<td style="width: 15cm;">
-						<ol>
-							<li>
-								User selects search for vehicle option
-							</li>
-							<li>
-								System displays all avaliable vehicles
-							</li>
-							<li>
-								User enters filters eg. rent dates and desired attributes
-							</li>
-							<li>
-								System shows results of filltering
-							</li>
-							<li>
-								User selects vehicle
-							</li>
-							<li>
-								System temporary locks vehicle for other reservations
-							</li>
-							<li>
-								System shows form with all details of car, dates and price
-							</li>
-							<li>
-								User accepts form
-							</li>
-							<li>
-								Vehicle is flagged as reserved
-							</li>
-						</ol>
-					</td>
-				</tr>
-				<tr>
-					<th>Alternate flow:</th>
-					<td style="width: 15cm;">
-						<ul>
-							<li>
-								<span class="number">3</span>
-								<span class="condition">There are no avaliable vehicles within these conditions</span>
-								<span class="reaction-additional"></span>
-								<span class="reaction-type">GOTO</span>
-								<span class="reaction-goto">2</span>
-							</li>
-							<li>
-								<span class="number">5</span>
-								<span class="condition">Vehicle has been marked as reserved in the meantime</span>
-								<span class="reaction-additional"></span>
-								<span class="reaction-type">GOTO</span>
-								<span class="reaction-goto">4</span>
-							</li>
-							<li>
-								<span class="number">8</span>
-								<span class="condition">User dosen't accept</span>
-								<span class="reaction-additional">- Vehicle is unlocked</span>
-								<span class="reaction-type">GOTO</span>
-								<span class="reaction-goto">4</span>
-							</li>
-						</ul>
-					</td>
-				</tr>
-			</tbody>
-		</table>
+			<table border="1">
+				<tbody>
+					<tr>
+						<th>Author name:</th>
+						<td style="width: 15cm;">
+							Karol
+						</td>
+					</tr>
+					<tr>
+						<th>Author surname:</th>
+						<td style="width: 15cm;">
+							Wójcik
+						</td>
+					</tr>
+					<tr>
+						<th>Author group:</th>
+						<td style="width: 15cm;">
+							Group 2
+						</td>
+					</tr>
+					<tr>
+						<th>Subject:</th>
+						<td style="width: 15cm;">
+							Car Rental Management System
+						</td>
+					</tr>
+					<tr>
+						<th>Use Case:</th>
+						<td style="width: 15cm;">
+							Rent vehicle on-line
+						</td>
+					</tr>
+					<tr>
+						<th>Language:</th>
+						<td style="width: 15cm;">
+							English
+						</td>
+					</tr>
+					<tr>
+						<th>Preconditions:</th>
+						<td style="width: 15cm;">
+							<ul>
+								<li>
+									User is logged in
+								</li>
+								<li>
+									There are available vehicles
+								</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>Postconditions:</th>
+						<td style="width: 15cm;">
+							<ul>
+								<li>
+									Vehicle is flagged as reserved
+								</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>Actors:</th>
+						<td style="width: 15cm;">
+							<ul>
+								<li>
+									Client
+								</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>Main flow:</th>
+						<td style="width: 15cm;">
+							<ol>
+								<li>
+									User selects search for vehicle option
+								</li>
+								<li>
+									System displays all available vehicles
+								</li>
+								<li>
+									User enters filters eg. rent dates and desired attributes
+								</li>
+								<li>
+									System shows results of filltering
+								</li>
+								<li>
+									User selects vehicle
+								</li>
+								<li>
+									System temporary locks vehicle for other reservations
+								</li>
+								<li>
+									System shows form with all details of car, dates and price
+								</li>
+								<li>
+									User accepts form
+								</li>
+								<li>
+									Vehicle is flagged as reserved
+								</li>
+							</ol>
+						</td>
+					</tr>
+					<tr>
+						<th>Alternate flow:</th>
+						<td style="width: 15cm;">
+							<ul>
+								<li>
+									<span class="number">3</span>
+									<span class="condition">There are no available vehicles within these conditions</span>
+									<span class="reaction-additional"></span>
+									<span class="reaction-type">GOTO</span>
+									<span class="reaction-goto">2</span>
+								</li>
+								<li>
+									<span class="number">5</span>
+									<span class="condition">Vehicle has been marked as reserved in the meantime</span>
+									<span class="reaction-additional"></span>
+									<span class="reaction-type">GOTO</span>
+									<span class="reaction-goto">4</span>
+								</li>
+								<li>
+									<span class="number">8</span>
+									<span class="condition">User dosen't accept</span>
+									<span class="reaction-additional">- Vehicle is unlocked</span>
+									<span class="reaction-type">GOTO</span>
+									<span class="reaction-goto">4</span>
+								</li>
+							</ul>
+						</td>
+					</tr>
+				</tbody>
+			</table>
 		</ul>
 		<br><ul>
-				<h3>5.4 Process a car rental</h3>
+			<h3>5.4 Process a car rental</h3>
 
-		<table border="1">
-			<tbody>
-				<tr>
-					<th>Author name:</th>
-					<td style="width: 15cm;">
-						Karol
-					</td>
-				</tr>
-				<tr>
-					<th>Author surname:</th>
-					<td style="width: 15cm;">
-						Wójcik
-					</td>
-				</tr>
-				<tr>
-					<th>Author group:</th>
-					<td style="width: 15cm;">
-						Group 2
-					</td>
-				</tr>
-				<tr>
-					<th>Subject:</th>
-					<td style="width: 15cm;">
-						Car Rental Management System
-					</td>
-				</tr>
-				<tr>
-					<th>Use Case:</th>
-					<td style="width: 15cm;">
-						Process a car rental
-					</td>
-				</tr>
-				<tr>
-					<th>Language:</th>
-					<td style="width: 15cm;">
-						English
-					</td>
-				</tr>
-				<tr>
-					<th>Preconditions:</th>
-					<td style="width: 15cm;">
-						<ul>
-							<li>
-								Reservation for vehicle has been made on-line
-							</li>
-						</ul>
-					</td>
-				</tr>
-				<tr>
-					<th>Postconditions:</th>
-					<td style="width: 15cm;">
-						<ul>
-							<li>
-								Vehicle has been rented
-							</li>
-						</ul>
-					</td>
-				</tr>
-				<tr>
-					<th>Actors:</th>
-					<td style="width: 15cm;">
-						<ul>
-							<li>
-								Client
-							</li>
-							<li>
-								Customer Service Representative
-							</li>
-						</ul>
-					</td>
-				</tr>
-				<tr>
-					<th>Main flow:</th>
-					<td style="width: 15cm;">
-						<ol>
-							<li>
-								Client approches front desk
-							</li>
-							<li>
-								Customer Service Representative checks reservation's details
-							</li>
-							<li>
-								Client and Representative go to parking spot of vehicle
-							</li>
-							<li>
-								Car is inspected for any problems
-							</li>
-							<li>
-								Client is given documents, keys and instructions
-							</li>
-							<li>
-								Client takes vehicle
-							</li>
-						</ol>
-					</td>
-				</tr>
-				<tr>
-					<th>Alternate flow:</th>
-					<td style="width: 15cm;">
-						<ul>
-							<li>
-								<span class="number">2</span>
-								<span class="condition">reservation is incorrect </span>
-								<span class="reaction-additional"></span>
-								<span class="reaction-type">END FLOW</span>
-								<span class="reaction-goto"></span>
-							</li>
-							<li>
-								<span class="number">4</span>
-								<span class="condition">there are problems with vehicle</span>
-								<span class="reaction-additional">Vehicle will be flagged for maintanence </span>
-								<span class="reaction-type">END FLOW</span>
-								<span class="reaction-goto"></span>
-							</li>
-						</ul>
-					</td>
-				</tr>
-			</tbody>
-		</table></ul>
-		<br /><ul>
-				  <h3>5.5 Cancel vehicle reservation</h3>
-
-		<table border="1">
-			<tbody>
-				<tr>
-					<th>Author name:</th>
-					<td style="width: 15cm;"> Patryk </td>
-				</tr>
-				<tr>
-					<th>Author surname:</th>
-					<td style="width: 15cm;"> Sobczyński </td>
-				</tr>
-				<tr>
-					<th>Author group:</th>
-					<td style="width: 15cm;"> Group 2 </td>
-				</tr>
-				<tr>
-					<th>Subject:</th>
-					<td style="width: 15cm;"> Car Rental Management System </td>
-				</tr>
-				<tr>
-					<th>Use Case:</th>
-					<td style="width: 15cm;"> Cancel vehicle reservation </td>
-				</tr>
-				<tr>
-					<th>Language:</th>
-					<td style="width: 15cm;"> English </td>
-				</tr>
-				<tr>
-					<th>Preconditions:</th>
-					<td style="width: 15cm;">
-						<ul>
-							<li> User need to be logeed in to the system </li>
-							<li> User need to have active car reservation </li>
-						</ul>
-					</td>
-				</tr>
-				<tr>
-					<th>Postconditions:</th>
-					<td style="width: 15cm;">
-						<ul>
-							<li> Reversation cancelled </li>
-						</ul>
-					</td>
-				</tr>
-				<tr>
-					<th>Actors:</th>
-					<td style="width: 15cm;">
-						<ul>
-							<li> Client </li>
-						</ul>
-					</td>
-				</tr>
-				<tr>
-					<th>Main flow:</th>
-					<td style="width: 15cm;">
-						<ol>
-							<li> User picks "My reservation" tab </li>
-							<li> System displays user reservation form </li>
-							<li> User picks "Cancel reservation" button </li>
-							<li> System displays message depending on time-left to scheduled reservation </li>
-							<li> System displays message: "It is less than 48h time left. You will be charged 50% of full price. Are you sure you want to cancel your reservation?" </li>
-							<li> System displays message "Are you sure you want to cancel your reservation?" </li>
-							<li> System display confirmation button </li>
-							<li> User selects confirmation of rejection </li>
-							<li> System displays confirmation of rejection </li>
-						</ol>
-					</td>
-				</tr>
-				<tr>
-					<th>Alternate flow:</th>
-					<td style="width: 15cm;">
-						<ul>
-							<li>
-								<span class="number">4</span>
-								<span class="condition">Time-left less than a 48h</span>
-								<span class="reaction-additional"></span>
-								<span class="reaction-type">GOTO</span>
-								<span class="reaction-goto">5</span>
-							</li>
-							<li>
-								<span class="number">4</span>
-								<span class="condition">Time-left more than a 48h</span>
-								<span class="reaction-additional"></span>
-								<span class="reaction-type">GOTO</span>
-								<span class="reaction-goto">6</span>
-							</li>
-							<li>
-								<span class="number">8</span>
-								<span class="condition">User rejects the rejection of the reservation</span>
-								<span class="reaction-additional"></span>
-								<span class="reaction-type">END FLOW</span>
-								<span class="reaction-goto"></span>
-							</li>
-						</ul>
-					</td>
-				</tr>
-			</tbody>
-		</table>
+			<table border="1">
+				<tbody>
+					<tr>
+						<th>Author name:</th>
+						<td style="width: 15cm;">
+							Karol
+						</td>
+					</tr>
+					<tr>
+						<th>Author surname:</th>
+						<td style="width: 15cm;">
+							Wójcik
+						</td>
+					</tr>
+					<tr>
+						<th>Author group:</th>
+						<td style="width: 15cm;">
+							Group 2
+						</td>
+					</tr>
+					<tr>
+						<th>Subject:</th>
+						<td style="width: 15cm;">
+							Car Rental Management System
+						</td>
+					</tr>
+					<tr>
+						<th>Use Case:</th>
+						<td style="width: 15cm;">
+							Process a car rental
+						</td>
+					</tr>
+					<tr>
+						<th>Language:</th>
+						<td style="width: 15cm;">
+							English
+						</td>
+					</tr>
+					<tr>
+						<th>Preconditions:</th>
+						<td style="width: 15cm;">
+							<ul>
+								<li>
+									Reservation for vehicle has been made on-line
+								</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>Postconditions:</th>
+						<td style="width: 15cm;">
+							<ul>
+								<li>
+									Vehicle has been rented
+								</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>Actors:</th>
+						<td style="width: 15cm;">
+							<ul>
+								<li>
+									Client
+								</li>
+								<li>
+									Customer Service Representative
+								</li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>Main flow:</th>
+						<td style="width: 15cm;">
+							<ol>
+								<li>
+									Client approches front desk
+								</li>
+								<li>
+									Customer Service Representative checks reservation's details
+								</li>
+								<li>
+									Representative checks current location of vehicle, approach vehicle with Client
+								</li>
+								<li>
+									Car is inspected for any problems and verified with technical logs
+								</li>
+								<li>
+									Client is presented digital form to sign
+								</li>
+								<li>
+									Client is given documents, keys and instructions. Client takes vehicle, vehicle is marked as rented
+								</li>
+							</ol>
+						</td>
+					</tr>
+					<tr>
+						<th>Alternate flow:</th>
+						<td style="width: 15cm;">
+							<ul>
+								<li>
+									<span class="number">2</span>
+									<span class="condition">reservation is incorrect </span>
+									<span class="reaction-additional"></span>
+									<span class="reaction-type">END FLOW</span>
+									<span class="reaction-goto"></span>
+								</li>
+								<li>
+									<span class="number">4</span>
+									<span class="condition">there are problems with vehicle</span>
+									<span class="reaction-additional">Vehicle will be flagged for maintanence </span>
+									<span class="reaction-type">END FLOW</span>
+									<span class="reaction-goto"></span>
+								</li>
+								<li>
+									<span class="number">5</span>
+									<span class="condition">client dosen't accept conditions</span>
+									<span class="reaction-additional"> </span>
+									<span class="reaction-type">END FLOW</span>
+									<span class="reaction-goto"></span>
+								</li>
+							</ul>
+						</td>
+					</tr>
+				</tbody>
+			</table>
 		</ul>
-		<table border="1">
-  			<tbody>
-    				<tr>
-      					<th>Author name:</th>
-      					<td style="width: 15cm;"> Patryk </td>
-    				</tr>
-    				<tr>
-      					<th>Author surname:</th>
-      					<td style="width: 15cm;"> Sobczyński </td>
-    				</tr>
-    				<tr>
-      					<th>Author group:</th>
-      					<td style="width: 15cm;"> Group 1 </td>
-    				</tr>
-    				<tr>
-      					<th>Subject:</th>
-      					<td style="width: 15cm;"> Car Rental Management System </td>
-  				</tr>
-   				<tr>
-      					<th>Use Case:</th>
-      					<td style="width: 15cm;"> Add User role </td>
-    				</tr>
-    				<tr>
-      					<th>Language:</th>
-      					<td style="width: 15cm;"> English </td>
-    				</tr>
-    				<tr>
-      					<th>Preconditions:</th>
-      					<td style="width: 15cm;">
-        				<ul>
-          					<li> User need to be logeed in to the system </li>
-          					<li> User need to have a "Administartor" role </li>
-       					</ul>
-      					</td>
-    				</tr>
-    				<tr>
-      					<th>Postconditions:</th>
-     					<td style="width: 15cm;">
-        				<ul>
-          					<li> The account have new role </li>
-        				</ul>
-      					</td>
-    				</tr>
-    				<tr>
-      					<th>Actors:</th>
-      					<td style="width: 15cm;">
-        				<ul>
-          					<li> Administaror </li>
-          					<li> User </li>
-        				</ul>
-      					</td>
-    				</tr>
-    				<tr>
-      					<th>Main flow:</th>
-      					<td style="width: 15cm;">
-        					<ol>
-          						<li> Administrator picks user table </li>
-          						<li> System displays list of all users </li>
-          						<li> Administrator click on a user record </li>
-          						<li> System displays user account settings </li>
-          						<li> Administrator picks "Add new role" function </li>
-         						<li> System displays all available roles for user and existing user roles </li>
-          						<li> Administrator picks roles to add and confirm the operation </li>
-          						<li> System verifies that the user does not have this role already </li>
-          						<li> System assings role for a user </li>
-          						<li> System sends to user a notification about new role </li>
-        					</ol>
-      					</td>
-    				</tr>
-   				<tr>
-      					<th>Alternate flow:</th>
-      						<td style="width: 15cm;">
-        					<ul>
-          						<li>
-            							<span class="number">8</span>
-            							<span class="condition">User already have this role</span>
-            							<span class="reaction-additional"></span>
-            							<span class="reaction-type">GOTO</span>
-            							<span class="reaction-goto">5</span>
-          						</li>
-        					</ul>
-      						</td>
-   				</tr>
-  			</tbody>
-		</table>
+		<br /><ul>
+			<h3>5.5 Cancel vehicle reservation</h3>
+
+			<table border="1">
+				<tbody>
+					<tr>
+						<th>Author name:</th>
+						<td style="width: 15cm;"> Patryk </td>
+					</tr>
+					<tr>
+						<th>Author surname:</th>
+						<td style="width: 15cm;"> Sobczyński </td>
+					</tr>
+					<tr>
+						<th>Author group:</th>
+						<td style="width: 15cm;"> Group 2 </td>
+					</tr>
+					<tr>
+						<th>Subject:</th>
+						<td style="width: 15cm;"> Car Rental Management System </td>
+					</tr>
+					<tr>
+						<th>Use Case:</th>
+						<td style="width: 15cm;"> Cancel vehicle reservation </td>
+					</tr>
+					<tr>
+						<th>Language:</th>
+						<td style="width: 15cm;"> English </td>
+					</tr>
+					<tr>
+						<th>Preconditions:</th>
+						<td style="width: 15cm;">
+							<ul>
+								<li> User need to be logeed in to the system </li>
+								<li> User need to have active car reservation </li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>Postconditions:</th>
+						<td style="width: 15cm;">
+							<ul>
+								<li> Reversation cancelled </li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>Actors:</th>
+						<td style="width: 15cm;">
+							<ul>
+								<li> Client </li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>Main flow:</th>
+						<td style="width: 15cm;">
+							<ol>
+								<li> User picks "My reservation" tab </li>
+								<li> System displays user reservation form </li>
+								<li> User picks "Cancel reservation" button </li>
+								<li> System displays message depending on time-left to scheduled reservation </li>
+								<li> System displays message: "It is less than 48h time left. You will be charged 50% of full price. Are you sure you want to cancel your reservation?" </li>
+								<li> System displays message "Are you sure you want to cancel your reservation?" </li>
+								<li> System display confirmation button </li>
+								<li> User selects confirmation of rejection </li>
+								<li> System displays confirmation of rejection </li>
+							</ol>
+						</td>
+					</tr>
+					<tr>
+						<th>Alternate flow:</th>
+						<td style="width: 15cm;">
+							<ul>
+								<li>
+									<span class="number">4</span>
+									<span class="condition">Time-left less than a 48h</span>
+									<span class="reaction-additional"></span>
+									<span class="reaction-type">GOTO</span>
+									<span class="reaction-goto">5</span>
+								</li>
+								<li>
+									<span class="number">4</span>
+									<span class="condition">Time-left more than a 48h</span>
+									<span class="reaction-additional"></span>
+									<span class="reaction-type">GOTO</span>
+									<span class="reaction-goto">6</span>
+								</li>
+								<li>
+									<span class="number">8</span>
+									<span class="condition">User rejects the rejection of the reservation</span>
+									<span class="reaction-additional"></span>
+									<span class="reaction-type">END FLOW</span>
+									<span class="reaction-goto"></span>
+								</li>
+							</ul>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</ul>
+
+		<br /><ul>
+				  <h3>5.6 Add User role</h3>
+			<table border="1">
+				<tbody>
+					<tr>
+						<th>Author name:</th>
+						<td style="width: 15cm;"> Patryk </td>
+					</tr>
+					<tr>
+						<th>Author surname:</th>
+						<td style="width: 15cm;"> Sobczyński </td>
+					</tr>
+					<tr>
+						<th>Author group:</th>
+						<td style="width: 15cm;"> Group 1 </td>
+					</tr>
+					<tr>
+						<th>Subject:</th>
+						<td style="width: 15cm;"> Car Rental Management System </td>
+					</tr>
+					<tr>
+						<th>Use Case:</th>
+						<td style="width: 15cm;"> Add User role </td>
+					</tr>
+					<tr>
+						<th>Language:</th>
+						<td style="width: 15cm;"> English </td>
+					</tr>
+					<tr>
+						<th>Preconditions:</th>
+						<td style="width: 15cm;">
+							<ul>
+								<li> User need to be logeed in to the system </li>
+								<li> User need to have a "Administartor" role </li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>Postconditions:</th>
+						<td style="width: 15cm;">
+							<ul>
+								<li> The account have new role </li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>Actors:</th>
+						<td style="width: 15cm;">
+							<ul>
+								<li> Administaror </li>
+								<li> User </li>
+							</ul>
+						</td>
+					</tr>
+					<tr>
+						<th>Main flow:</th>
+						<td style="width: 15cm;">
+							<ol>
+								<li> Administrator picks user table </li>
+								<li> System displays list of all users </li>
+								<li> Administrator click on a user record </li>
+								<li> System displays user account settings </li>
+								<li> Administrator picks "Add new role" function </li>
+								<li> System displays all available roles for user and existing user roles </li>
+								<li> Administrator picks roles to add and confirm the operation </li>
+								<li> System verifies that the user does not have this role already </li>
+								<li> System assings role for a user </li>
+								<li> System sends to user a notification about new role </li>
+							</ol>
+						</td>
+					</tr>
+					<tr>
+						<th>Alternate flow:</th>
+						<td style="width: 15cm;">
+							<ul>
+								<li>
+									<span class="number">8</span>
+									<span class="condition">User already have this role</span>
+									<span class="reaction-additional"></span>
+									<span class="reaction-type">GOTO</span>
+									<span class="reaction-goto">5</span>
+								</li>
+							</ul>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</ul>
 	</article>
 
 
 
-	
+
 	<article id="activity-diagrams">
 		<h4>Diagramy aktywności</h4>
 
@@ -971,7 +995,7 @@
 		</section>
 	</article>
 
-	
+
 	<article id="class-diagram">
 		<h4>Diagram klas</h4>
 		<p class="uml">
@@ -985,12 +1009,12 @@
 			+borrow()
 			+giveBack()
 			{static} findBooks()
-		}
+			}
 
-		abstract class User
+			abstract class User
 
-		User <|-- Reader
-		User <|-- Worker
+			User <|-- Reader
+				   User <|-- Worker
 		Worker <|-- Manager
 
 		Reader ..> Book
@@ -1000,7 +1024,7 @@
 		</p>
 	</article>
 
-	
+
 	<article>
 		<h4>Wzorce projektowe</h4>
 		<section class="pattern">
@@ -1024,11 +1048,11 @@
 
 				-Singleton()
 				{static} +getInstance()
-			}
+				}
 
-			Singleton ..> Singleton : << create >>
+				Singleton ..> Singleton : << create >>
 
-			@enduml
+				@enduml
 			</p>
 			<h6>Kod wzorca</h6>
 			<pre class="pattern-code"><code class="lang-java">
@@ -1058,25 +1082,25 @@ class SingletonTest{
 
 			</code></pre>
 		</section>
-</article>
+	</article>
 
-	
+
 	<article id="sequence-diagrams">
 		<h4>Diagramy sekwencji</h4>
 		<section>
 			<h5>Nazwa diagramu</h5>
-		<p class="author">Adam Krechowicz</p>
-		<p class="uml">
-			@startuml
-Alice -> Bob: Authentication Request
-Bob --> Alice: Authentication Response
+			<p class="author">Adam Krechowicz</p>
+			<p class="uml">
+				@startuml
+				Alice -> Bob: Authentication Request
+				Bob --> Alice: Authentication Response
 
-Alice -> Bob: Another authentication Request
-Alice <-- Bob: Another authentication Response
-@enduml
-		</p>
-	</section>
+				Alice -> Bob: Another authentication Request
+				Alice <-- Bob: Another authentication Response
+					  @enduml
+			</p>
+		</section>
 	</article>
 
 </body>
-</html> 
+</html>
