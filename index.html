@@ -199,8 +199,9 @@
 	</article>
 	
 	<article id="use-case-scenarios-english">
-		<h2>5. Use case scenarios</h2> <br>
-
+		<h2>5. Use case scenarios</h2> 
+<ul>
+	<h3>5.1 Task assignment</h3>
 		<table border="1">
 			<tbody>
 				<tr>
@@ -218,7 +219,7 @@
 				<tr>
 					<th>Author group:</th>
 					<td style="width: 15cm;">
-						Group 1
+						Group 2
 					</td>
 				</tr>
 				<tr>
@@ -322,7 +323,11 @@
 				</tr>
 			</tbody>
 		</table>
-		<br /><br />
+	</ul>
+		<ul>
+		<br />
+		<h3>5.2 Car repair task status update</h3>
+
 		<table border="1">
 			<tbody>
 				<tr>
@@ -340,7 +345,7 @@
 				<tr>
 					<th>Author group:</th>
 					<td style="width: 15cm;">
-						Group 1
+						Group 2
 					</td>
 				</tr>
 				<tr>
@@ -450,8 +455,10 @@
 					</td>
 				</tr>
 			</tbody>
-		</table>
-		<br /><br />
+		</table></ul>
+		<br /><ul>
+				  <h3>5.3 Rent vehicle on-line</h3>
+
 		<table border="1">
 			<tbody>
 				<tr>
@@ -587,8 +594,10 @@
 				</tr>
 			</tbody>
 		</table>
+		</ul>
+		<br><ul>
+				<h3>5.4 Process a car rental</h3>
 
-		<br><br>
 		<table border="1">
 			<tbody>
 				<tr>
@@ -707,105 +716,108 @@
 					</td>
 				</tr>
 			</tbody>
-		</table>
-		<table border="1">
-  <tbody>
-    <tr>
-      <th>Author name:</th>
-      <td style="width: 15cm;"> Patryk </td>
-    </tr>
-    <tr>
-      <th>Author surname:</th>
-      <td style="width: 15cm;"> Sobczyński </td>
-    </tr>
-    <tr>
-      <th>Author group:</th>
-      <td style="width: 15cm;"> Group 1 </td>
-    </tr>
-    <tr>
-      <th>Subject:</th>
-      <td style="width: 15cm;"> Car Rental Management System </td>
-    </tr>
-    <tr>
-      <th>Use Case:</th>
-      <td style="width: 15cm;"> Cancel vehicle reservation </td>
-    </tr>
-    <tr>
-      <th>Language:</th>
-      <td style="width: 15cm;"> English </td>
-    </tr>
-    <tr>
-      <th>Preconditions:</th>
-      <td style="width: 15cm;">
-        <ul>
-          <li> User need to be logeed in to the system </li>
-          <li> User need to have active car reservation </li>
-        </ul>
-      </td>
-    </tr>
-    <tr>
-      <th>Postconditions:</th>
-      <td style="width: 15cm;">
-        <ul>
-          <li> Reversation cancelled </li>
-        </ul>
-      </td>
-    </tr>
-    <tr>
-      <th>Actors:</th>
-      <td style="width: 15cm;">
-        <ul>
-          <li> Client </li>
-        </ul>
-      </td>
-    </tr>
-    <tr>
-      <th>Main flow:</th>
-      <td style="width: 15cm;">
-        <ol>
-          <li> User picks "My reservation" tab </li>
-          <li> System displays user reservation form </li>
-          <li> User picks "Cancel reservation" button </li>
-          <li> System displays message depending on time-left to scheduled reservation </li>
-          <li> System displays message: "It is less than 48h time left. You will be charged 50% of full price. Are you sure you want to cancel your reservation?" </li>
-          <li> System displays message "Are you sure you want to cancel your reservation?" </li>
-          <li> System display confirmation button </li>
-          <li> User selects confirmation of rejection </li>
-          <li> System displays confirmation of rejection </li>
-        </ol>
-      </td>
-    </tr>
-    <tr>
-      <th>Alternate flow:</th>
-      <td style="width: 15cm;">
-        <ul>
-          <li>
-            <span class="number">4</span>
-            <span class="condition">Time-left less than a 48h</span>
-            <span class="reaction-additional"></span>
-            <span class="reaction-type">GOTO</span>
-            <span class="reaction-goto">5</span>
-          </li>
-          <li>
-            <span class="number">4</span>
-            <span class="condition">Time-left more than a 48h</span>
-            <span class="reaction-additional"></span>
-            <span class="reaction-type">GOTO</span>
-            <span class="reaction-goto">6</span>
-          </li>
-          <li>
-            <span class="number">8</span>
-            <span class="condition">User rejects the rejection of the reservation</span>
-            <span class="reaction-additional"></span>
-            <span class="reaction-type">END FLOW</span>
-            <span class="reaction-goto"></span>
-          </li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
-</table>
+		</table></ul>
+		<br /><ul>
+				  <h3>5.5 Cancel vehicle reservation</h3>
 
+		<table border="1">
+			<tbody>
+				<tr>
+					<th>Author name:</th>
+					<td style="width: 15cm;"> Patryk </td>
+				</tr>
+				<tr>
+					<th>Author surname:</th>
+					<td style="width: 15cm;"> Sobczyński </td>
+				</tr>
+				<tr>
+					<th>Author group:</th>
+					<td style="width: 15cm;"> Group 2 </td>
+				</tr>
+				<tr>
+					<th>Subject:</th>
+					<td style="width: 15cm;"> Car Rental Management System </td>
+				</tr>
+				<tr>
+					<th>Use Case:</th>
+					<td style="width: 15cm;"> Cancel vehicle reservation </td>
+				</tr>
+				<tr>
+					<th>Language:</th>
+					<td style="width: 15cm;"> English </td>
+				</tr>
+				<tr>
+					<th>Preconditions:</th>
+					<td style="width: 15cm;">
+						<ul>
+							<li> User need to be logeed in to the system </li>
+							<li> User need to have active car reservation </li>
+						</ul>
+					</td>
+				</tr>
+				<tr>
+					<th>Postconditions:</th>
+					<td style="width: 15cm;">
+						<ul>
+							<li> Reversation cancelled </li>
+						</ul>
+					</td>
+				</tr>
+				<tr>
+					<th>Actors:</th>
+					<td style="width: 15cm;">
+						<ul>
+							<li> Client </li>
+						</ul>
+					</td>
+				</tr>
+				<tr>
+					<th>Main flow:</th>
+					<td style="width: 15cm;">
+						<ol>
+							<li> User picks "My reservation" tab </li>
+							<li> System displays user reservation form </li>
+							<li> User picks "Cancel reservation" button </li>
+							<li> System displays message depending on time-left to scheduled reservation </li>
+							<li> System displays message: "It is less than 48h time left. You will be charged 50% of full price. Are you sure you want to cancel your reservation?" </li>
+							<li> System displays message "Are you sure you want to cancel your reservation?" </li>
+							<li> System display confirmation button </li>
+							<li> User selects confirmation of rejection </li>
+							<li> System displays confirmation of rejection </li>
+						</ol>
+					</td>
+				</tr>
+				<tr>
+					<th>Alternate flow:</th>
+					<td style="width: 15cm;">
+						<ul>
+							<li>
+								<span class="number">4</span>
+								<span class="condition">Time-left less than a 48h</span>
+								<span class="reaction-additional"></span>
+								<span class="reaction-type">GOTO</span>
+								<span class="reaction-goto">5</span>
+							</li>
+							<li>
+								<span class="number">4</span>
+								<span class="condition">Time-left more than a 48h</span>
+								<span class="reaction-additional"></span>
+								<span class="reaction-type">GOTO</span>
+								<span class="reaction-goto">6</span>
+							</li>
+							<li>
+								<span class="number">8</span>
+								<span class="condition">User rejects the rejection of the reservation</span>
+								<span class="reaction-additional"></span>
+								<span class="reaction-type">END FLOW</span>
+								<span class="reaction-goto"></span>
+							</li>
+						</ul>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		</ul>
 	</article>
 
 
