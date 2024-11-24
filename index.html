@@ -944,6 +944,9 @@
 				@startuml
 				start
 				:Add new task;
+				
+				if(User has permissions to add new task?) then (yes)
+				
 				:Show form "Add new task" ;
 				repeat
 				:Selecting available Maintenance Technician;
@@ -960,6 +963,12 @@
 				repeat while (Technician available?) is (no)
 				->yes;
 				:Add new task;
+
+				else(no)
+				:No permission;
+				:Redirect to previous url;
+				endif
+				:Save logs;
 				stop
 				@enduml
 			</p>
@@ -985,8 +994,10 @@
 				->yes;
 				:Update task;
 				else(no)
-				:You don't have permission to do that!;
+				:No permission;
+				:Redirect to previous url;
 				endif
+				:Save logs;
 				stop
 				@enduml
 			</p>
