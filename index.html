@@ -937,7 +937,33 @@
 
 	<article id="activity-diagrams">
 		<h4>Diagramy aktywności</h4>
-
+		<section>
+			<h5>Add new task</h5>
+			<p class="author">Jakub Sikora</p>
+			<p class="uml">
+				@startuml
+				start
+				:Add new task;
+				:Show form "Add new task" ;
+				repeat
+				:Selecting available Maintenance Technician;
+				repeat
+				:Selecting car;
+				repeat
+				:Inputing information about task;
+				:Sending form;
+				:Form validation;
+				repeat while (Information inputted?) is (no)
+				->yes;
+				repeat while (Car selected?) is (no)
+				->yes;
+				repeat while (Technician available?) is (no)
+				->yes;
+				:Add new task;
+				stop
+				@enduml
+			</p>
+		</section>	
 		<section>
 			<h5>Dodaj książkę</h5>
 			<p class="author">Adam Krechowicz</p>
