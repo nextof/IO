@@ -963,6 +963,35 @@
 				stop
 				@enduml
 			</p>
+		</section>
+		<article id="activity-diagrams">
+		<h4>Diagramy aktywności</h4>
+		<section>
+			<h5>Add new task</h5>
+			<p class="author">Jakub Sikora</p>
+			<p class="uml">
+				@startuml
+				start
+				:Update car repair status;
+				if(User has permissions to update car repair status?) then (yes)
+				:Show form "Update task";
+				repeat
+				:Selecting task;
+				repeat
+				:Updating information about task;
+				:Sending form;
+				:Form validation;
+				repeat while (Information inputted?) is (no)
+				->yes;
+				repeat while (Task selected?) is (no)
+				->yes;
+				:Update task;
+				else(no)
+				:You don't have permission to do that!;
+				endif
+				stop
+				@enduml
+			</p>
 		</section>	
 		<section>
 			<h5>Dodaj książkę</h5>
