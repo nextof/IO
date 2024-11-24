@@ -1001,7 +1001,54 @@
 				stop
 				@enduml
 			</p>
-		</section>	
+		</section>
+		<section>
+			<h5>Cancel vehicle reservation;</h5>
+			<p class="author">Patryk Sobczyński</p>
+			<p class="uml">
+				@startuml
+				start
+				:Cancel vehicle reservation;
+				:Show user reservation form;
+				:Pick "Cancel Reservation";
+				if(timeleft less than 48h) then (yes)
+				:display msg: It is less than 48h time left. You will be charged 50% of full price. Are you sure you want to cancel your reservation;
+				else (no)
+				:display msg: Are you sure you want to cancel your reservation?;
+				endif
+				:display confirmation button;
+				if(User accepts?) then (yes)
+				:Cancel reservation;
+				else (no)
+				stop
+				endif
+				 
+				stop
+				@enduml
+			</p>
+		</section>
+		<section>
+			<h5>Add user role</h5>
+			<p class="author">Patryk Sobczyński</p>
+			<p class="uml">
+				@startuml
+				start
+				:Add User role;
+				:Shows users list;
+				:Pick user;
+				:Pick add new role;
+				repeat
+				:Pick available role;
+				:Sending form;
+				:Form validation;
+				 
+				repeat while (User already have this role) is (yes)
+				->no;
+				:Add new role;
+				stop
+				@enduml
+			</p>
+		</section>
 		<section>
 			<h5>Dodaj książkę</h5>
 			<p class="author">Adam Krechowicz</p>
