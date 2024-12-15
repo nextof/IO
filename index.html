@@ -1104,95 +1104,112 @@
 		<h4>Diagram klas</h4>
 		<p class="uml">
 			@startuml
-				class Vehicle {
-					+ make
-					+ model
-					+ productionYear
-					+ licensePlate
-					+ vehicleType
-					+ mileage
-					+ technicalCondition
-					+ status // Available, Reserved, Rented, Under Maintenance
-					+ uniqueIdentifier
-				}
-				
-				class Client {
-					+ name
-					+ contactInfo
-					+ billingInformation
-					+ rentalHistory
-					+ restrictions
-				}
-				
-				class Employee {
-					+ name
-					+ employeeID
-					+ role // CSR, Maintenance, Manager, Administrator
-					+ contactInfo
-				}
-				
-				class CustomerServiceRepresentative {
-					+ processRental()
-					+ processReturn()
-					+ assistReservation()
-				}
-				
-				class MaintenanceTechnician {
-					+ updateServiceRecords()
-					+ flagVehicleMaintenance()
-					+ viewRepairStatus()
-				}
-				
-				class Manager {
-					+ approveStaffing()
-					+ handleEscalatedIssues()
-					+ assignTasks()
-					+ createShiftSchedule()
-				}
-				
-				class Administrator {
-					+ manageRolesPermissions()
-					+ monitorDataLogs()
-					+ setupEmployeeAccounts()
-				}
-				
-				class Reservation {
-					+ reservationID
-					+ clientID
-					+ vehicleID
-					+ startDate
-					+ endDate
-					+ cost
-					+ status // Active, Canceled
-				}
-				
-				class Billing {
-					+ invoiceID
-					+ amount
-					+ paymentStatus
-					+ paymentDate
-				}
-				
-				class Shift {
-					+ shiftID
-					+ employeeID
-					+ startTime
-					+ endTime
-					+ tasks
-				}
-				
-				Vehicle "1" <-- "*" Reservation : bookedBy
-				Client "1" <-- "*" Reservation : makes
-				Reservation "1" --> "1" Billing : generates
-				Employee <|-- CustomerServiceRepresentative
-				Employee <|-- MaintenanceTechnician
-				Employee <|-- Manager
-				Employee <|-- Administrator
-				Manager "1" --> "*" Shift : creates
-				Shift "1" --> "1" Employee : assigns
-				Vehicle "1" --> "*" MaintenanceTechnician : maintainedBy
-				Administrator "1" --> "*" Employee : manages
-				@enduml
+			skinparam classAttributeIconSize 0
+			class Vehicle {
+			+ make
+			+ model
+			+ productionYear
+			+ licensePlate
+			+ vehicleType
+			+ mileage
+			+ technicalCondition
+			+ status // Available, Reserved, Rented, Under Maintenance
+			+ uniqueIdentifier
+			}
+			
+			class Client {
+			+ name
+			+ contactInfo
+			+ billingInformation
+			+ rentalHistory
+			+ restrictions
+			+ makeAReservation()
+			+ processPayment()
+			}
+			
+			class Task {
+			+ taskId
+			+ taskType
+			+ assignedEmployee
+			+ assignedVehicle
+			+ timestamp
+			+ description
+			}
+			
+			class Employee {
+			+ name
+			+ employeeID
+			+ role // CSR, Maintenance, Manager, Administrator
+			+ contactInfo
+			+ shift
+			}
+			
+			class CustomerServiceRepresentative {
+			+ processRental()
+			+ processReturn()
+			+ assistReservation()
+			}
+			
+			class MaintenanceTechnician {
+			+ updateServiceRecords()
+			+ flagVehicleMaintenance()
+			+ viewRepairStatus()
+			}
+			
+			class Manager {
+			+ createTask()
+			+ assignTasks()
+			+ createShift()
+			+ updateShift()
+			+ deleteShift()
+			}
+			
+			class Administrator {
+			+ manageRolesPermissions()
+			+ monitorDataLogs()
+			+ setupEmployeeAccounts()
+			}
+			
+			class Reservation {
+			+ reservationID
+			+ clientID
+			+ vehicleID
+			+ startDate
+			+ endDate
+			+ cost
+			+ status // Active, Canceled
+			}
+			
+			class Billing {
+			+ invoiceID
+			+ amount
+			+ paymentStatus
+			+ paymentDate
+			}
+			
+			class Shift {
+			+ shiftID
+			+ employeeID
+			+ startTime
+			+ endTime
+			+ tasks
+			}
+			
+			Vehicle "1" <-- "*" Reservation : contains
+			Client "1" --> "*" Reservation : makes
+			Billing <.. Client : settlesInvoices
+			Reservation "1" --> "1" Billing : generates
+			Employee <.. Task : assignedTo
+			Vehicle <.. Task : refersTo
+			Employee *--> CustomerServiceRepresentative
+			Employee *--> MaintenanceTechnician
+			Employee *--> Manager
+			Employee *--> Administrator
+			Manager "1" --> "*" Shift : creates
+			Shift "1" --> "1" Employee : assigns
+			Vehicle "1" --> "*" MaintenanceTechnician : maintainedBy
+			Administrator "1" --> "*" Employee : manages
+			@enduml
 		</p>
 	</article>
 
