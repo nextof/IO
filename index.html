@@ -27,8 +27,6 @@
 		<li>Patryk Sobczyński</li>
 	</ul>
 
-	<article id="description-polish">
-	</article>
 
 
 	<article id="description-english">
@@ -936,9 +934,9 @@
 
 
 	<article id="activity-diagrams">
-		<h4>Diagramy aktywności</h4>
+		<h2>6. Activity Diagrams </h2>
 		<section>
-			<h5>Add new task</h5>
+			<h3>6.1 Add new task</h3>
 			<p class="author">Jakub Sikora</p>
 			<p class="uml">
 				@startuml
@@ -974,7 +972,7 @@
 			</p>
 		</section>
 		<section>
-			<h5>Update car repair status</h5>
+            <h3>6.2 Update car repair status</h3>
 			<p class="author">Jakub Sikora</p>
 			<p class="uml">
 				@startuml
@@ -1002,8 +1000,61 @@
 				@enduml
 			</p>
 		</section>
+
 		<section>
-			<h5>Cancel vehicle reservation;</h5>
+            <h3>6.3 Setup new employee</h3>
+
+			<p class="author">Karol Wójcik</p>
+			<p class="uml">
+				@startuml
+				start
+				:Setup new employee;
+				repeat
+				repeat
+				:Show form;
+				:Filling form;
+				:Sending form;
+				:Form validation;
+				repeat while (Data correct?) is (no) not (yes)
+				repeat while (Form coplete?) is (no) not (yes)
+				:Employee added;
+				
+				stop
+				@enduml
+			</p>
+		</section>
+
+		<section>
+            <h3>6.4 Rent vehicle</h3>
+
+			<p class="author">Karol Wójcik</p>
+			<p class="uml">
+				@startuml
+				start
+				:Rent vehicle;
+				repeat
+				:Show search;
+				:Filling search;
+				repeat while (search valid?) is (no) not (yes)
+				:Show search results;
+				
+				repeat
+				:Selecting vehicle;
+				:Show form;
+				:Filling form;
+				:Sending form;
+				:Form validation;
+				repeat while (Form complete?) is (no) not (yes)
+				:Rent vehicle;
+				
+				stop
+				@enduml
+				
+			</p>
+		</section>
+
+		<section>
+            <h3>6.5 Cancel vehicle reservation</h3>
 			<p class="author">Patryk Sobczyński</p>
 			<p class="uml">
 				@startuml
@@ -1027,266 +1078,582 @@
 				@enduml
 			</p>
 		</section>
-		<section>
-			<h5>Add user role</h5>
-			<p class="author">Patryk Sobczyński</p>
-			<p class="uml">
-				@startuml
-				start
-				:Add User role;
-				:Shows users list;
-				:Pick user;
-				:Pick add new role;
-				repeat
-				:Pick available role;
-				:Sending form;
-				:Form validation;
-				 
-				repeat while (User already have this role) is (yes)
-				->no;
-				:Add new role;
-				stop
-				@enduml
-			</p>
-		</section>
-		<section>
-			<h5>Dodaj książkę</h5>
-			<p class="author">Adam Krechowicz</p>
-			<p class="uml">
-				@startuml
 
-				start
-				:Add new book;
-				repeat
-				repeat
-				:Show form;
-				:Filling form;
-				:Sending form;
-				:Form validation;
-				repeat while (Book exists?) is (yes)
-				->no;
-				repeat while (Form complete?) is (no)
-				->yes;
-				:Add book;
-				stop
-
-				@enduml
-			</p>
-		</section>
-		<section>
-			<h5>Dodaj książkę</h5>
-			<p class="author">Adam Krechowicz</p>
-			<p class="uml">
-				@startuml
-
-				start
-				:Add new book;
-				repeat
-				repeat
-				:Show form;
-				:Filling form;
-				:Sending form;
-				:Form validation;
-				repeat while (Book exists?) is (yes)
-				->no;
-				repeat while (Form complete?) is (no)
-				->yes;
-				:Add book;
-				stop
-
-				@enduml
-			</p>
-		</section>
 	</article>
 
 
 	<article id="class-diagram">
-		<h4>Diagram klas</h4>
+		<h2>7. Class Diagram </h2>
 		<p class="uml">
-			@startuml
-			skinparam classAttributeIconSize 0
-			class Vehicle {
-			+ make
-			+ model
-			+ productionYear
-			+ licensePlate
-			+ vehicleType
-			+ mileage
-			+ technicalCondition
-			+ status // Available, Reserved, Rented, Under Maintenance
-			+ uniqueIdentifier
-			}
-			
-			class Client {
-			+ name
-			+ contactInfo
-			+ billingInformation
-			+ rentalHistory
-			+ restrictions
-			+ makeAReservation()
-			+ processPayment()
-			}
-			
-			class Task {
-			+ taskId
-			+ taskType
-			+ assignedEmployee
-			+ assignedVehicle
-			+ timestamp
-			+ description
-			}
-			
-			class Employee {
-			+ name
-			+ employeeID
-			+ role // CSR, Maintenance, Manager, Administrator
-			+ contactInfo
-			+ shift
-			}
-			
-			class CustomerServiceRepresentative {
-			+ processRental()
-			+ processReturn()
-			+ assistReservation()
-			}
-			
-			class MaintenanceTechnician {
-			+ updateServiceRecords()
-			+ flagVehicleMaintenance()
-			+ viewRepairStatus()
-			}
-			
-			class Manager {
-			+ createTask()
-			+ assignTasks()
-			+ createShift()
-			+ updateShift()
-			+ deleteShift()
-			}
-			
-			class Administrator {
-			+ manageRolesPermissions()
-			+ monitorDataLogs()
-			+ setupEmployeeAccounts()
-			}
-			
-			class Reservation {
-			+ reservationID
-			+ clientID
-			+ vehicleID
-			+ startDate
-			+ endDate
-			+ cost
-			+ status // Active, Canceled
-			}
-			
-			class Billing {
-			+ invoiceID
-			+ amount
-			+ paymentStatus
-			+ paymentDate
-			}
-			
-			class Shift {
-			+ shiftID
-			+ employeeID
-			+ startTime
-			+ endTime
-			+ tasks
-			}
-			
-			Vehicle "1" <-- "*" Reservation : contains
-			Client "1" --> "*" Reservation : makes
-			Billing <.. Client : settlesInvoices
-			Reservation "1" --> "1" Billing : generates
-			Employee <.. Task : assignedTo
-			Vehicle <.. Task : refersTo
-			Employee *--> CustomerServiceRepresentative
-			Employee *--> MaintenanceTechnician
-			Employee *--> Manager
-			Employee *--> Administrator
-			Manager "1" --> "*" Shift : creates
-			Shift "1" --> "1" Employee : assigns
-			Vehicle "1" --> "*" MaintenanceTechnician : maintainedBy
-			Administrator "1" --> "*" Employee : manages
-			@enduml
+            @startuml
+            skinparam classAttributeIconSize 0
+            
+            class Vehicle {
+                + make
+                + model
+                + productionYear
+                + licensePlate
+                + vehicleType
+                + mileage
+                + technicalCondition
+                + status // Available, Reserved, Rented, Under Maintenance
+                + uniqueIdentifier
+            }
+            
+            class Client {
+                + name
+                + contactInfo
+                + billingInformation
+                + rentalHistory
+                + restrictions
+                + makeReservation()
+                + processPayment()
+            }
+            
+            class Task {
+                + taskId
+                + taskType
+                + assignedEmployee
+                + assignedVehicle
+                + timestamp
+                + description
+            }
+            
+            class Employee {
+                + name
+                + employeeID
+                + role // CSR, Maintenance, Manager, Administrator
+                + contactInfo
+                + shift
+            }
+            
+            class CustomerServiceRepresentative {
+                + processRental()
+                + processReturn()
+                + assistReservation()
+            }
+            
+            class MaintenanceTechnician {
+                + updateServiceRecords()
+                + flagVehicleMaintenance()
+                + viewRepairStatus()
+            }
+            
+            class Manager {
+                + createTask()
+                + assignTasks()
+                + createShift()
+                + updateShift()
+                + deleteShift()
+            }
+            
+            class Administrator {
+                + manageRolesPermissions()
+                + monitorDataLogs()
+                + setupEmployeeAccounts()
+            }
+            
+            class Reservation {
+                + reservationID
+                + clientID
+                + vehicleID
+                + startDate
+                + endDate
+                + cost
+                + status // Active, Canceled
+            }
+            
+            class Billing {
+                + invoiceID
+                + amount
+                + paymentStatus
+                + paymentDate
+            }
+            
+            class Shift {
+                + shiftID
+                + employeeID
+                + startTime
+                + endTime
+                + tasks
+            }
+            
+            Vehicle "1" --> "*" Reservation : contains
+            Client "1" --> "*" Reservation : makes
+            Billing "1" <.. "1" Client : settlesInvoices
+            Reservation "1" --> "1" Billing : generates
+            Employee "1" <.. "*" Task : assignedTo
+            Vehicle "1" <.. "*" Task : refersTo
+            Employee <|-- CustomerServiceRepresentative
+            Employee <|-- MaintenanceTechnician
+            Employee <|-- Manager
+            Employee <|-- Administrator
+            Manager "1" --> "*" Shift : creates
+            Shift "1" --> "1" Employee : assigns
+            Vehicle "1" --> "*" MaintenanceTechnician : maintainedBy
+            Administrator "1" --> "*" Employee : manages
+            
+            @enduml
 		</p>
 	</article>
 
 
 	<article>
-		<h4>Wzorce projektowe</h4>
-		<section class="pattern">
-			<h5>Singleton</h5>
-			<p class="author">Adam Krechowicz</p>
-			<h6>Problem</h6>
-			<div class="pattern-problem">
-				<p class="guidelines">Opis problemu, jaki będzie rozwiązany za pomocą wzorca, który występuje w projekcie</p>
-			</div>
-			<h6>Rozwiązanie</h6>
-			<div class="pattern-description">
-				<p class="guidelines">Opis zaproponowanego rozwiązania wynikającego z charakterystyki wzorca. W tym punkcie należy zarówno opisać wzorzec zastosowany wzorzec projektowy jak równizeż umotywować dlaczego pasuje on do rozwiązania zadanego problemu</p>
-			</div>
-			<h6>Diagram klas</h6>
-			<p class="uml pattern-diagram">
-				@startuml
-				skinparam classAttributeIconSize 0
+		<h2>8. Design Patterns</h2>
+    <section class="pattern">
+        <h3>8.1 Prototype</h3>
+        <p class="author">Karol Wójcik</p>
+        <h4>Problem</h4>
+        <div class="pattern-problem">
+            <p class="guidelines">System needs efficient way to handle creating multiple instances of similar cars for various rental requests. 
+                <br>For example, if we frequently rent out a specific model with the same configuration (e.g., engine type, color, and features), creating each instance from scratch can be resource-intensive and error-prone.<br>Additionally, as the system evolves, 
+                there may be a need to customize these cars slightly (e.g., adding specific features for a particular customer).</p>
+        </div>
+        <h4>Solution</h4>
+        <div class="pattern-description">
+            <p class="guidelines">To address this problem, the system requires a mechanism to:<br>
 
-				class Singleton{
-				{static} -instance
+                <br>*Quickly create copies of existing car objects without repeating initialization logic.
+                
+                <br>*Ensure that the copied objects are independent of the original and can be modified without side effects.
+                
+                <br>*Reduce the cost of creating objects by reusing existing configurations as prototypes.
+            
+                <br><br>The Prototype design pattern provides a way to create new objects by copying an existing object, known as the prototype. This approach is particularly useful when creating resource-heavy objects or when object configurations is complex.</p>
+        </div>
+        <h4>Class diagram</h4>
+        <p class="uml pattern-diagram">
+            @startuml
+            interface Prototype {
+                + clone() : Prototype
+            }
+            
+            class Car implements Prototype {
+                - brand : String
+                - model : String
+                - engineType : String
+                - features : List<String>
+                + Car(String, String, String, List<String>)
+                + clone() : Car
+            }
+            
+            class CompactCar extends Car {
+                + CompactCar(String, String, String, List<String>)
+                + clone() : CompactCar
+            }
+            
+            class SUVCar extends Car {
+                + SUVCar(String, String, String, List<String>)
+                + clone() : SUVCar
+            }
+            
+            class LuxuryCar extends Car {
+                + LuxuryCar(String, String, String, List<String>)
+                + clone() : LuxuryCar
+            }
+            
+            Prototype <|.. Car
+            Car <|-- CompactCar
+            Car <|-- SUVCar
+            Car <|-- LuxuryCar
+            @enduml
 
-				-Singleton()
-				{static} +getInstance()
-				}
+        <h4>Kod wzorca</h4>
+        <pre class="pattern-code"><code class="lang-java">
+            import java.util.*;
+           interface Prototype {
+                Prototype clone();
+            }
+            class Car implements Prototype {
+                public String brand;
+                public String model;
+                public String engineType;
+                public List<String> features;
+            
+                public Car(String brand, String model, String engineType, List<String> features) {
+                    this.brand = brand;
+                    this.model = model;
+                    this.engineType = engineType;
+                    this.features = new ArrayList<>(features);
+                }          
+                public void addFeature(String feature) {
+                    this.features.add(feature);
+                }           
+                public void displayInfo() {
+                    System.out.println("Brand: " + brand + ", Model: " + model + ", Engine: " + engineType + ", Features: " + features);
+                }           
+                @Override
+                public Car clone() {
+                    return new Car(this.brand, this.model, this.engineType, this.features);
+                }
+            }
+            class CompactCar extends Car {
+                public CompactCar(String brand, String model, String engineType, List<String> features) {
+                    super(brand, model, engineType, features);
+                }            
+                @Override
+                public CompactCar clone() {
+                    return new CompactCar("Compact - " + brand, model, engineType, features);
+                }
+            }       
+            class SUVCar extends Car {
+                public SUVCar(String brand, String model, String engineType, List<String> features) {
+                    super(brand, model, engineType, features);
+                }
+            
+                @Override
+                public SUVCar clone() {
+                    return new SUVCar("SUV - " + brand, model, engineType, features);
+                }
+            }
+            
+            class LuxuryCar extends Car {
+                public LuxuryCar(String brand, String model, String engineType, List<String> features) {
+                    super(brand, model, engineType, features);
+                }
+            
+                @Override
+                public LuxuryCar clone() {
+                    return new LuxuryCar("Luxury - " + brand, model, engineType, features);
+                }
+            }
+        </code></pre>
+        <h4>Kod testowy wzorca</h4>
+        <pre class="pattern-test-code"><code class="lang-java">
+    public class CarRentalSystem {
+        public static void main(String[] args) {
+            List<String> features = Arrays.asList("GPS", "Air Conditioning", "Bluetooth");
+    
+            Car compactPrototype = new CompactCar("Toyota", "Corolla", "Petrol", features);
+            Car suvPrototype = new SUVCar("Ford", "Explorer", "Diesel", features);
+    
+            Car compactCar1 = compactPrototype.clone();
+            compactCar1.addFeature("Sunroof");
+            compactCar1.displayInfo();
+    
+            Car suvCar1 = suvPrototype.clone();
+            suvCar1.addFeature("All-Wheel Drive");
+            suvCar1.displayInfo();
+        }
+    }
 
-				Singleton ..> Singleton : << create >>
-
-				@enduml
-			</p>
-			<h6>Kod wzorca</h6>
-			<pre class="pattern-code"><code class="lang-java">
-class Singleton{
-
-	public void Test(){
-
-	}
-
-	public static void main(String args[]){
-
-	}
-}
-			</code></pre>
-			<h6>Kod testowy wzorca</h6>
-			<pre class="pattern-test-code"><code class="lang-java">
-class SingletonTest{
-
-	public void Test(){
-
-	}
-
-	@Test
-	public void testSingleton(){
-	}
-}
-
-			</code></pre>
-		</section>
+        </code></pre>
+    </section>
 	</article>
 
 
-	<article id="sequence-diagrams">
-		<h4>Diagramy sekwencji</h4>
-		<section>
-			<h5>Nazwa diagramu</h5>
-			<p class="author">Adam Krechowicz</p>
-			<p class="uml">
-				@startuml
-				Alice -> Bob: Authentication Request
-				Bob --> Alice: Authentication Response
 
-				Alice -> Bob: Another authentication Request
-				Alice <-- Bob: Another authentication Response
-					  @enduml
+	<article>
+		<h2>9. Structural Patterns</h2>
+	<section class="pattern">
+		<h3>9.1 Composite</h3>
+		<p class="author">Karol Wójcik</p>
+		<h4>Problem</h4>
+		<div class="pattern-problem">
+			<p class="guidelines">We need to manage and represent collections of cars as a single object. For instance, we may group cars into fleets based on their type, purpose, or availability. 
+                These fleets need to be treated uniformly whether they represent a single car or a collection of cars. Additionally, it should be possible to compose fleets of fleets to represent larger groupings, such as all cars available for a particular event.</p>
+		</div>
+		<h4>Solution</h4>
+		<div class="pattern-description">
+			<p class="guidelines">The system requires a mechanism to:<br>
+	
+				<br>*Represent both individual cars and groups of cars uniformly.
+				<br>*Allow composition of groups.
+				<br>*Simplify operations such as displaying fleet details or performing actions on all cars within a group.
+			
+				<br><br>The Composite design pattern is used to treat individual objects and compositions of objects uniformly. This pattern allows a tree structure where objects can either be individual components (leaves) or composites (containers).</p>
+		</div>
+		<h4>Class diagram</h4>
+		<p class="uml pattern-diagram">
+			@startuml
+	interface RentalItem {
+		+ getDetails() : String
+	}
+	
+	class Car implements RentalItem {
+		- brand : String
+		- model : String
+		- licensePlate : String
+		+ Car(String, String, String)
+		+ getDetails() : String
+	}
+	
+	class Fleet implements RentalItem {
+		- name : String
+		- items : List<RentalItem>
+		+ Fleet(String)
+		+ addItem(RentalItem)
+		+ removeItem(RentalItem)
+		+ getDetails() : String
+	}
+	
+	RentalItem <|.. Car
+	RentalItem <|.. Fleet
+	Fleet o-- RentalItem
+	@enduml
+	
+		<h6>Kod wzorca</h6>
+		<pre class="pattern-code"><code class="lang-java">
+			import java.util.*;
+
+interface RentalItem {
+    String getDetails();
+}
+
+class Car implements RentalItem {
+    private String brand;
+    private String model;
+    private String licensePlate;
+
+    public Car(String brand, String model, String licensePlate) {
+        this.brand = brand;
+        this.model = model;
+        this.licensePlate = licensePlate;
+    }
+
+    @Override
+    public String getDetails() {
+        return "Car: " + brand + " " + model + " [" + licensePlate + "]";
+    }
+}
+
+class Fleet implements RentalItem {
+    private String name;
+    private List<RentalItem> items;
+
+    public Fleet(String name) {
+        this.name = name;
+        this.items = new ArrayList<>();
+    }
+
+    public void addItem(RentalItem item) {
+        items.add(item);
+    }
+
+    public void removeItem(RentalItem item) {
+        items.remove(item);
+    }
+
+    @Override
+    public String getDetails() {
+        StringBuilder details = new StringBuilder("Fleet: " + name + "\n");
+        for (RentalItem item : items) {
+            details.append("  ").append(item.getDetails()).append("\n");
+        }
+        return details.toString();
+    }
+}
+
+		</code></pre>
+		<h4>Kod testowy wzorca</h4>
+		<pre class="pattern-test-code"><code class="lang-java">
+            public class CarRentalSystem {
+                public static void main(String[] args) {
+                    Car car1 = new Car("Toyota", "Corolla", "ABC-123");
+                    Car car2 = new Car("Honda", "Civic", "DEF-456");
+                    Car car3 = new Car("Ford", "Focus", "GHI-789");
+            
+                    Fleet compactFleet = new Fleet("Compact Fleet");
+                    compactFleet.addItem(car1);
+                    compactFleet.addItem(car2);
+            
+                    Fleet overallFleet = new Fleet("Overall Fleet");
+                    overallFleet.addItem(compactFleet);
+                    overallFleet.addItem(car3);
+            
+                    System.out.println(overallFleet.getDetails());
+            
+                }
+            }
+		</code></pre>
+	</section>
+	</article>
+
+	<article>
+		<h2>10. Behavioural Patterns</h2>
+	<section class="pattern">
+		<h3>10.1 Observer</h3>
+		<p class="author">Karol Wójcik</p>
+		<h4>Problem</h4>
+		<div class="pattern-problem">
+			<p class="guidelines">System needs to notify various modules (e.g., availability tracking, customer notifications, pricing updates) whenever the status of a car changes (e.g., when it is rented, returned, or marked for maintenance). These modules act as observers that must stay synchronized with the car's status.
+				For example:<br>
+				<br>*When a car's status changes to "rented," customers on the waiting list must be notified.
+				<br>*When a car's status changes to "maintenance," the availability tracking system should mark it unavailable.
+				<br>*The pricing system may adjust rental prices dynamically based on demand and availability.
+			</p>
+		</div>
+		<h4>Solution</h4>
+		<div class="pattern-description">
+			<p class="guidelines">The Observer design pattern defines a one-to-many dependency between objects so that when one object (the Subject) changes its state, all its dependents (Observers) are notified and updated automatically.</p>
+		</div>
+		<h4>Class diagram</h4>
+		<p class="uml pattern-diagram">
+			@startuml
+			interface Observer {
+				+ update(String status)
+			}
+			
+			class Car {
+				- status : String
+				- observers : List<Observer>
+				+ addObserver(Observer)
+				+ removeObserver(Observer)
+				+ setStatus(String)
+				+ notifyObservers()
+			}
+			
+			class CustomerNotification implements Observer {
+				+ update(String status)
+			}
+			
+			class AvailabilityTracker implements Observer {
+				+ update(String status)
+			}
+			
+			class PricingSystem implements Observer {
+				+ update(String status)
+			}
+			
+			Car o-- Observer
+			Observer <|.. CustomerNotification
+			Observer <|.. AvailabilityTracker
+			Observer <|.. PricingSystem
+			@enduml
+	
+		<h4>Kod wzorca</h4>
+		<pre class="pattern-code"><code class="lang-java">
+			import java.util.ArrayList;
+			import java.util.List;
+		   
+			interface Observer {
+				void update(String status);
+			}
+	
+	
+			class Car {
+				private String status;
+				private List<Observer> observers;
+			
+				public Car() {
+					this.observers = new ArrayList<>();
+				}
+			
+				public void addObserver(Observer observer) {
+					observers.add(observer);
+				}
+			
+				public void removeObserver(Observer observer) {
+					observers.remove(observer);
+				}
+			
+				public void setStatus(String status) {
+					this.status = status;
+					notifyObservers();
+				}
+			
+				public void notifyObservers() {
+					for (Observer observer : observers) {
+						observer.update(status);
+					}
+				}
+			}
+			class CustomerNotification implements Observer {
+				@Override
+				public void update(String status) {
+					System.out.println("CustomerNotification: The car status changed to: " + status);
+				}
+			}
+			
+			class AvailabilityTracker implements Observer {
+				@Override
+				public void update(String status) {
+					System.out.println("AvailabilityTracker: The car is now: " + status);
+				}
+			}
+			
+			class PricingSystem implements Observer {
+				@Override
+				public void update(String status) {
+					System.out.println("PricingSystem: Adjusting prices due to status change: " + status);
+				}
+			}
+		</code></pre>
+		<h4>Kod testowy wzorca</h4>
+		<pre class="pattern-test-code"><code class="lang-java">
+			public class ObserverPatternTest {
+				public static void main(String[] args) {
+					Car car = new Car();
+			
+					Observer customerNotification = new CustomerNotification();
+					Observer availabilityTracker = new AvailabilityTracker();
+					Observer pricingSystem = new PricingSystem();
+			
+					car.addObserver(customerNotification);
+					car.addObserver(availabilityTracker);
+					car.addObserver(pricingSystem);
+
+					System.out.println("Setting car status to 'rented':");
+					car.setStatus("rented");
+			
+					System.out.println("\nSetting car status to 'maintenance':");
+					car.setStatus("maintenance");
+			
+					System.out.println("\nRemoving AvailabilityTracker and setting status to 'available':");
+					car.removeObserver(availabilityTracker);
+					car.setStatus("available");
+				}
+			}
+		</code></pre>
+	</section>
+	</article>
+
+
+
+
+
+
+
+	<article id="sequence-diagrams">
+		<h2>11. Sequence Diagrams</h2>
+		<section>
+			<h3>11.1 Vehicle Reservation / Vehicle Rental</h3>
+			<p class="author">Karol Wójcik</p>
+			<p class="uml">
+                @startuml
+                actor Client
+                actor "Customer Service Representative" as CSR
+                entity System
+                entity Vehicle
+                entity CustomerNotification
+                entity AvailabilityTracker
+                entity PricingSystem
+                
+                == Vehicle Reservation ==
+                
+                Client -> CSR: Request vehicle availability
+                CSR -> System: Check vehicle availability
+                System -> CSR: Vehicle available
+                CSR -> Client: Reservation confirmation
+                System -> Vehicle: Update status to reserved
+                Vehicle -> CustomerNotification: Notify status change
+                Vehicle -> AvailabilityTracker: Notify status change
+                Vehicle -> PricingSystem: Notify status change
+                
+                == Vehicle Rental ==
+                
+                Client -> CSR: Confirm reservation
+                CSR -> System: Verify reservation
+                System -> CSR: Reservation confirmed
+                CSR -> Vehicle: Update status to rented
+                System -> Client: Rental receipt confirmation
+                Vehicle -> CustomerNotification: Notify status change
+                Vehicle -> AvailabilityTracker: Notify status change
+                Vehicle -> PricingSystem: Notify status change
+                
+                @enduml
+                
+                
 			</p>
 		</section>
 	</article>
