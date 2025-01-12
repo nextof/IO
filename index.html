@@ -1252,9 +1252,7 @@
                 + clone() : LuxuryCar
             }
             
-            Prototype <|.. Car
-            Car <|-- CompactCar
-            Car <|-- SUVCar
+        
             
             @enduml
 
@@ -1387,9 +1385,7 @@
 		+ getDetails() : String
 	}
 	
-	RentalItem <|.. Car
-	RentalItem <|.. Fleet
-	Fleet o-- RentalItem
+	
 	@enduml
 	
 		<h6>Kod wzorca</h6>
@@ -1515,10 +1511,7 @@ class Fleet implements RentalItem {
 				+ update(String status)
 			}
 			
-			Car o-- Observer
-			Observer <|.. CustomerNotification
-			Observer <|.. AvailabilityTracker
-			Observer <|.. PricingSystem
+			
 			@enduml
 	
 		<h4>Kod wzorca</h4>
