@@ -1078,6 +1078,28 @@
 				@enduml
 			</p>
 		</section>
+		<section>
+            <h3>6.6 Add User role</h3>
+			<p class="author">Patryk Sobczyński</p>
+			<p class="uml">
+				@startuml
+				start
+				:Add User role;
+				:Shows users list;
+				:Pick user;
+				:Pick add new role;
+				repeat
+				:Pick available role;
+				:Sending form;
+				:Form validation;
+				 
+				repeat while (User already have this role) is (yes)
+				->no;
+				:Add new role;
+				stop
+				@enduml
+			</p>
+		</section>
 
 	</article>
 
