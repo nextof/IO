@@ -1092,19 +1092,19 @@
                 + make
                 + model
                 + productionYear
-                + licensePlate
+                - licensePlate
                 + vehicleType
-                + mileage
+                - mileage
                 + technicalCondition
                 + status // Available, Reserved, Rented, Under Maintenance
                 + uniqueIdentifier
             }
             
             class Client {
-                + name
-                + contactInfo
-                + billingInformation
-                + rentalHistory
+                - name
+                - contactInfo
+                - billingInformation
+                - rentalHistory
                 + restrictions
                 + makeReservation()
                 + processPayment()
@@ -1115,12 +1115,12 @@
                 + taskType
                 + assignedEmployee
                 + assignedVehicle
-                + timestamp
+                - timestamp
                 + description
             }
             
             class Employee {
-                + name
+                - name
                 + employeeID
                 + role // CSR, Maintenance, Manager, Administrator
                 + contactInfo
@@ -1157,24 +1157,24 @@
                 + reservationID
                 + clientID
                 + vehicleID
-                + startDate
-                + endDate
-                + cost
+                - startDate
+                - endDate
+                - cost
                 + status // Active, Canceled
             }
             
             class Billing {
                 + invoiceID
-                + amount
-                + paymentStatus
+                - amount
+                - paymentStatus
                 + paymentDate
             }
             
             class Shift {
                 + shiftID
                 + employeeID
-                + startTime
-                + endTime
+                - startTime
+                - endTime
                 + tasks
             }
             
