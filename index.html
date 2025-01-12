@@ -1365,10 +1365,10 @@
         <h4>Problem</h4>
         <div class="pattern-problem">
             <p class="guidelines">
-		    The system needs an efficient way to handle creating multiple instances of similar employees for various roles (e.g., Customer Service Representatives, Maintenance Technicians, Managers, and Administrators) for different tasks or shifts.
+		    The system needs an efficient way to handle creating multiple instances of similar employees for various roles (e.g., Customer Service Representatives, Maintenance Technicians, Managers, and Administrators) for different tasks or shifts. These employees share common attributes (e.g., name, surname, role, tasks) and behaviors, making it inefficient and error-prone to recreate them from scratch for every instance.
 
-For example, if a specific employee model with the same basic configuration (e.g., name, surname, role, tasks) is frequently used, creating each new employee from scratch can be resource-intensive and error-prone. Additionally, as the system evolves, there may be a need to slightly customize these employee instances (e.g., adding specific tasks or modifying attributes for particular shifts or duties).
-	    </p>
+Additionally, as the system evolves, there may be a need to slightly customize these employee instances (e.g., adding specific tasks or modifying attributes for particular shifts or duties). Without a centralized structure to manage shared functionality and attributes, this process could become repetitive and prone to inconsistencies.
+</p>
 	
 	</div>
         <h4>Solution</h4>
@@ -1376,11 +1376,12 @@ For example, if a specific employee model with the same basic configuration (e.g
             <p class="guidelines">
 		    To address this problem, the system requires a mechanism to:
 
-Quickly create copies of existing employee objects without repeating the initialization logic.
+Centralize common employee attributes and behaviors in a shared structure to reduce duplication and errors.
+Quickly create copies of existing employee objects without repeating initialization logic.
 Ensure that the copied employee objects are independent of the original and can be modified without side effects (e.g., adjusting tasks or assignments for specific shifts).
-Reduce the cost of creating employee instances by reusing existing employee configurations as prototypes.
-The Prototype design pattern provides a way to create new employee objects by copying an existing object, known as the prototype. This approach is particularly useful when creating resource-heavy employee objects or when employee configurations are complex, as it allows for efficient cloning and modification of employee roles without the overhead of re-initializing common attributes.
-	    </p>
+Using an abstract class to implement the Prototype design pattern solves these challenges effectively. The abstract class defines common properties (name, surname, role, tasks) and shared behaviors (addTask, displayInfo, performTask). Subclasses for each role (e.g., Customer Service Representatives, Technicians) can inherit this shared functionality while implementing their specific cloning logic through the abstract clone() method.
+
+This approach simplifies object creation, ensures reusability of employee configurations, and allows for efficient cloning and modification of employee roles without the overhead of re-initializing common attributes.</p>
         </div>
         <h4>Class diagram</h4>
         <p class="uml pattern-diagram">
