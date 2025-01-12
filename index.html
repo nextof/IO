@@ -1359,6 +1359,184 @@
 
         </code></pre>
     </section>
+    <section class="pattern">
+        <h3>8.1 Prototype</h3>
+        <p class="author">Jakub Sikora</p>
+        <h4>Problem</h4>
+        <div class="pattern-problem">
+            <p class="guidelines">System needs efficient way to handle creating multiple instances of similar cars for various rental requests. 
+                <br>For example, if we frequently rent out a specific model with the same configuration (e.g., engine type, color, and features), creating each instance from scratch can be resource-intensive and error-prone.<br>Additionally, as the system evolves, 
+                there may be a need to customize these cars slightly (e.g., adding specific features for a particular customer).</p>
+        </div>
+        <h4>Solution</h4>
+        <div class="pattern-description">
+            <p class="guidelines">To address this problem, the system requires a mechanism to:<br>
+
+                <br>*Quickly create copies of existing car objects without repeating initialization logic.
+                
+                <br>*Ensure that the copied objects are independent of the original and can be modified without side effects.
+                
+                <br>*Reduce the cost of creating objects by reusing existing configurations as prototypes.
+            
+                <br><br>The Prototype design pattern provides a way to create new objects by copying an existing object, known as the prototype. This approach is particularly useful when creating resource-heavy objects or when object configurations is complex.</p>
+        </div>
+        <h4>Class diagram</h4>
+        <p class="uml pattern-diagram">
+            @startuml
+    interface Prototype {
+        + clone() : Prototype
+    }
+    
+    class Employee implements Prototype {
+        - name : String
+        - surname : String
+        - role : String
+        - tasks : List<String>
+        + Employee(String, String, String)
+        + addTask(String)
+        + displayInfo()
+        + clone() : Employee
+        + performTask(String)
+    }
+    
+    class CustomerServiceRepresentative extends Employee {
+        + CustomerServiceRepresentative(String, String)
+        + clone() : CustomerServiceRepresentative
+    }
+    
+    class MaintenanceTechnician extends Employee {
+        + MaintenanceTechnician(String, String)
+        + clone() : MaintenanceTechnician
+    }
+    
+    class Manager extends Employee {
+        + Manager(String, String)
+        + clone() : Manager
+    }
+    
+    class Administrator extends Employee {
+        + Administrator(String, String)
+        + clone() : Administrator
+    }
+
+@enduml
+
+        <h4>Kod wzorca</h4>
+        <pre class="pattern-code"><code class="lang-java">
+            import java.util.*;
+
+interface Prototype {
+    Prototype clone();
+}
+
+class Employee implements Prototype {
+    protected String name;
+    protected String surname;
+    protected String role;
+    protected List<String> tasks;
+
+    public Employee(String name, String surname, String role) {
+        this.name = name;
+        this.surname = surname;
+        this.role = role;
+        this.tasks = new ArrayList<>();
+    }
+
+    public void addTask(String task) {
+        tasks.add(task);
+    }
+
+    public void displayInfo() {
+        System.out.println("Name: " + name + " " + surname + ", Role: " + role + ", Tasks: " + tasks);
+    }
+
+    @Override
+    public Employee clone() {
+        Employee clonedEmployee = new Employee(this.name, this.surname, this.role);
+        clonedEmployee.tasks = new ArrayList<>(this.tasks);
+        return clonedEmployee;
+    }
+
+    // Basic function for employees
+    public void performTask(String task) {
+        System.out.println(role + " " + name + " is performing task: " + task);
+    }
+}
+
+class CustomerServiceRepresentative extends Employee {
+    public CustomerServiceRepresentative(String name, String surname) {
+        super(name, surname, "Customer Service Representative");
+    }
+
+    @Override
+    public Employee clone() {
+        return new CustomerServiceRepresentative(name, surname);
+    }
+}
+
+class MaintenanceTechnician extends Employee {
+    public MaintenanceTechnician(String name, String surname) {
+        super(name, surname, "Maintenance Technician");
+    }
+
+
+    @Override
+    public Employee clone() {
+        return new MaintenanceTechnician(name, surname);
+    }
+}
+
+class Manager extends Employee {
+    public Manager(String name, String surname) {
+        super(name, surname, "Manager");
+    }
+
+
+    @Override
+    public Employee clone() {
+        return new Manager(name, surname);
+    }
+}
+
+class Administrator extends Employee {
+    public Administrator(String name, String surname) {
+        super(name, surname, "Administrator");
+    }
+
+
+    @Override
+    public Employee clone() {
+        return new Administrator(name, surname);
+    }
+}
+        </code></pre>
+        <h4>Kod testowy wzorca</h4>
+        <pre class="pattern-test-code"><code class="lang-java">
+    public class Main {
+    public static void main(String[] args) {
+        // Create instances of different employees
+        Employee csr = new CustomerServiceRepresentative("John", "Doe");
+        Employee technician = new MaintenanceTechnician("Alice", "Smith");
+        Employee manager = new Manager("Bob", "Johnson");
+        Employee admin = new Administrator("Charlie", "Brown");
+
+        // Display information about each employee
+        csr.displayInfo();
+        technician.displayInfo();
+        manager.displayInfo();
+        admin.displayInfo();
+
+        // Demonstrate cloning employees
+        Employee clonedCSR = csr.clone();
+        clonedCSR.displayInfo();
+
+        Employee clonedTechnician = technician.clone();
+        clonedTechnician.displayInfo();
+    }
+}
+
+        </code></pre>
+    </section>
 	</article>
 
 
