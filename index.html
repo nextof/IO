@@ -1807,38 +1807,61 @@ class Fleet implements RentalItem {
 			<h3>11.1 Vehicle Reservation / Vehicle Rental</h3>
 			<p class="author">Karol Wójcik</p>
 			<p class="uml">
-                @startuml
-                actor Client
-                actor "Customer Service Representative" as CSR
-                entity System
-                entity Vehicle
-                entity CustomerNotification
-                entity AvailabilityTracker
-                entity PricingSystem
-                
-                == Vehicle Reservation ==
-                
-                Client -> CSR: Request vehicle availability
-                CSR -> System: Check vehicle availability
-                System -> CSR: Vehicle available
-                CSR -> Client: Reservation confirmation
-                System -> Vehicle: Update status to reserved
-                Vehicle -> CustomerNotification: Notify status change
-                Vehicle -> AvailabilityTracker: Notify status change
-                Vehicle -> PricingSystem: Notify status change
-                
-                == Vehicle Rental ==
-                
-                Client -> CSR: Confirm reservation
-                CSR -> System: Verify reservation
-                System -> CSR: Reservation confirmed
-                CSR -> Vehicle: Update status to rented
-                System -> Client: Rental receipt confirmation
-                Vehicle -> CustomerNotification: Notify status change
-                Vehicle -> AvailabilityTracker: Notify status change
-                Vehicle -> PricingSystem: Notify status change
-                
-                @enduml
+@startuml
+
+actor Client
+actor "Customer Service Rep" as CSR
+participant "System" as System
+participant "Database" as Database
+participant "Vehicle" as Vehicle
+participant "ObserverManager" as OM
+participant "Payment Gateway" as PG
+participant "Notification Service" as NS
+
+== Online Vehicle Reservation ==
+
+Client -> System: ReserveCar [REQ_001]
+System -> Database: SELECT [DB_SEL_001]
+Database --> System: {status: "available"} [DB_RES_001]
+System -> PG: ProcessPayment [PAY_001]
+PG --> System: {status: "success"} [PAY_RES_001]
+
+System -> Database: UPDATE [DB_UPD_001]
+Database --> System: {status: "success"} [DB_UPD_RES_001]
+
+alt Success
+    System -> Vehicle: Update Status("Reserved") [VEH_UPD_001]
+    System -> OM: NotifyObservers [OBS_NOT_001]
+    OM -> NS: SendNotification [NOTIFY_001]
+else Failure
+    System --> Client: {message: "Reservation Failed"} [RESP_001]
+end
+
+System --> Client: {message: "Reservation Successful"} [RESP_002]
+
+== Vehicle Rental Process ==
+
+CSR -> System: RentCar [REQ_002]
+System -> Database: SELECT reservation [DB_SEL_002]
+Database --> System: {status: "valid"} [DB_RES_002]
+System -> PG: ProcessPayment [PAY_002]
+PG --> System: {status: "success"} [PAY_RES_002]
+
+System -> Database: UPDATE vehicle [DB_UPD_002]
+Database --> System: {status: "success"} [DB_UPD_RES_002]
+
+alt Success
+    System -> Vehicle: Update Status("Rented") [VEH_UPD_002]
+    System -> OM: NotifyObservers [OBS_NOT_002]
+    OM -> NS: SendNotification [NOTIFY_002]
+else Failure
+    System --> CSR: {message: "Rental Failed", errorCode} [RESP_003]
+end
+
+System --> CSR: {message: "Rental Successful"} [RESP_004]
+
+@enduml
+
                 
                 
 			</p>
