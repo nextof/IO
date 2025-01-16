@@ -1815,7 +1815,7 @@ participant "System" as System
 participant "Database" as Database
 participant "Vehicle" as Vehicle
 participant "ObserverManager" as OM
-participant "Payment Gateway" as PG
+participant "Payments Service" as PS
 participant "Notification Service" as NS
 
 == Online Vehicle Reservation ==
@@ -1823,8 +1823,8 @@ participant "Notification Service" as NS
 Client -> System: ReserveCar [REQ_001]
 System -> Database: SELECT [DB_SEL_001]
 Database --> System: {status: "available"} [DB_RES_001]
-System -> PG: ProcessPayment [PAY_001]
-PG --> System: {status: "success"} [PAY_RES_001]
+System -> PS: ProcessPayment [PAY_001]
+PS --> System: {status: "success"} [PAY_RES_001]
 
 System -> Database: UPDATE [DB_UPD_001]
 Database --> System: {status: "success"} [DB_UPD_RES_001]
@@ -1841,11 +1841,12 @@ System --> Client: {message: "Reservation Successful"} [RESP_002]
 
 == Vehicle Rental Process ==
 
+Client -> CSR: Provide Reservation Details
 CSR -> System: RentCar [REQ_002]
 System -> Database: SELECT reservation [DB_SEL_002]
 Database --> System: {status: "valid"} [DB_RES_002]
-System -> PG: ProcessPayment [PAY_002]
-PG --> System: {status: "success"} [PAY_RES_002]
+System -> PS: ProcessPayment [PAY_002]
+PS --> System: {status: "success"} [PAY_RES_002]
 
 System -> Database: UPDATE vehicle [DB_UPD_002]
 Database --> System: {status: "success"} [DB_UPD_RES_002]
@@ -1856,9 +1857,11 @@ alt Success
     OM -> NS: SendNotification [NOTIFY_002]
 else Failure
     System --> CSR: {message: "Rental Failed", errorCode} [RESP_003]
+	CSR --> Client: Rental Failed
 end
 
 System --> CSR: {message: "Rental Successful"} [RESP_004]
+CSR --> Client: Rental Complete
 
 @enduml
 
