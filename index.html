@@ -2121,16 +2121,16 @@ class RentVehicle implements Permission {
 		<pre class="pattern-test-code"><code class="lang-java">
 			public class Main {
 				public static void main(String[] args) {
-					// Tworzenie kroków
+					System.out.println("Tworzenie kroków");
 					VehicleSelectionStep vehicleSelection = new VehicleSelectionStep();
 					UserDataStep userDataStep = new UserDataStep();
 					PaymentProcessingStep paymentProcessingStep = new PaymentProcessingStep();
 			
-					// Konfiguracja łańcucha
+					System.out.println("Konfiguracja łańcucha");
 					vehicleSelection.setNext(userDataStep);
 					userDataStep.setNext(paymentProcessingStep);
 			
-					// Tworzenie żądania rezerwacji
+					System.out.println("Tworzenie żądania rezerwacji");
 					ReservationRequest request = new ReservationRequest();
 					request.setSelectedVehicle("Toyota Corolla");
 					request.setUserData(new HashMap<>() {{
@@ -2139,7 +2139,7 @@ class RentVehicle implements Permission {
 					}});
 					request.setPaymentDetails("Credit Card - 1234-5678-9876-5432");
 			
-					// Rozpoczęcie przetwarzania
+					System.out.println("Rozpoczęcie przetwarzania");
 					vehicleSelection.handle(request);
 				}
 			}
