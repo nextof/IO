@@ -1531,6 +1531,179 @@ class Administrator extends Employee {
 
         </code></pre>
     </section>
+		<section class="pattern">
+        <h3>8.3 Factory Method</h3>
+        <p class="author">Patryk Sobczyński</p>
+        <h4>Problem</h4>
+        <div class="pattern-problem">
+            <p class="guidelines">Creating reservation (Reservation) objects in a car rental management system is complicated because it requires setting many detailed attributes, such as customer, vehicle, start date, end date, status and cost. Directly creating such objects in one step can lead to unreadable code and errors.</p>
+	</div>
+        <h4>Solution</h4>
+        <div class="pattern-description">
+            <p class="guidelines">The Builder pattern allows you to build reservation objects in stages. This makes the code more readable and less error-prone, especially when the object has many attributes that may be optional or require validation.</p>
+        </div>
+        <h4>Class diagram</h4>
+        <p class="uml pattern-diagram">
+           @startuml
+		class Reservation {
+		    - reservationId: String
+		    - client: String
+		    - vehicle: String
+		    - startDate: String
+		    - endDate: String
+		    - status: String
+		    - cost: double
+		    --
+		    + getReservationId(): String
+		    + getClient(): String
+		    + getVehicle(): String
+		    + getStartDate(): String
+		    + getEndDate(): String
+		    + getStatus(): String
+		    + getCost(): double
+		    + toString(): String
+		}
+		
+		class Builder {
+		    - reservationId: String
+		    - client: String
+		    - vehicle: String
+		    - startDate: String
+		    - endDate: String
+		    - status: String
+		    - cost: double
+		    --
+		    + setReservationId(reservationId: String): Builder
+		    + setClient(client: String): Builder
+		    + setVehicle(vehicle: String): Builder
+		    + setStartDate(startDate: String): Builder
+		    + setEndDate(endDate: String): Builder
+		    + setStatus(status: String): Builder
+		    + setCost(cost: double): Builder
+		    + build(): Reservation
+		}
+		
+		Reservation *-- Builder : "<<create>>"
+	@enduml
+        <h4>Kod wzorca</h4>
+        <pre class="pattern-code"><code class="lang-java">
+		public class Reservation {
+		    private final String reservationId;
+		    private final String client;
+		    private final String vehicle;
+		    private final String startDate;
+		    private final String endDate;
+		    private final String status;
+		    private final double cost;
+		
+		    // Prywatny konstruktor - używany przez Builder
+		    private Reservation(Builder builder) {
+		        this.reservationId = builder.reservationId;
+		        this.client = builder.client;
+		        this.vehicle = builder.vehicle;
+		        this.startDate = builder.startDate;
+		        this.endDate = builder.endDate;
+		        this.status = builder.status;
+		        this.cost = builder.cost;
+		    }
+		
+		    // Gettery
+		    public String getReservationId() {
+		        return reservationId;
+		    }
+		
+		    public String getClient() {
+		        return client;
+		    }
+		
+		    public String getVehicle() {
+		        return vehicle;
+		    }
+		
+		    public String getStartDate() {
+		        return startDate;
+		    }
+		
+		    public String getEndDate() {
+		        return endDate;
+		    }
+		
+		    public String getStatus() {
+		        return status;
+		    }
+		
+		    public double getCost() {
+		        return cost;
+		    }
+		
+		    @Override
+		    public String toString() {
+		        return "Reservation{" +
+		                "reservationId='" + reservationId + '\'' +
+		                ", client='" + client + '\'' +
+		                ", vehicle='" + vehicle + '\'' +
+		                ", startDate='" + startDate + '\'' +
+		                ", endDate='" + endDate + '\'' +
+		                ", status='" + status + '\'' +
+		                ", cost=" + cost +
+		                '}';
+		    }
+		
+		    // Klasa Builder
+		    public static class Builder {
+		        private String reservationId;
+		        private String client;
+		        private String vehicle;
+		        private String startDate;
+		        private String endDate;
+		        private String status;
+		        private double cost;
+		
+		        public Builder setReservationId(String reservationId) {
+		            this.reservationId = reservationId;
+		            return this;
+		        }
+		
+		        public Builder setClient(String client) {
+		            this.client = client;
+		            return this;
+		        }
+		
+		        public Builder setVehicle(String vehicle) {
+		            this.vehicle = vehicle;
+		            return this;
+		        }
+		
+		        public Builder setStartDate(String startDate) {
+		            this.startDate = startDate;
+		            return this;
+		        }
+		
+		        public Builder setEndDate(String endDate) {
+		            this.endDate = endDate;
+		            return this;
+		        }
+		
+		        public Builder setStatus(String status) {
+		            this.status = status;
+		            return this;
+		        }
+		
+		        public Builder setCost(double cost) {
+		            this.cost = cost;
+		            return this;
+		        }
+		
+		        public Reservation build() {
+		            if (reservationId == null || client == null || vehicle == null || startDate == null || endDate == null) {
+		                throw new IllegalStateException("Missing required fields");
+		            }
+		            return new Reservation(this);
+		        }
+		    }
+		}
+        </code></pre>
+    </section>
 	</article>
 
 
@@ -2144,32 +2317,7 @@ class RentVehicle implements Permission {
 				}
 			}
 		</code></pre>
-	</section>
-
-
-<section class="pattern">
-        <h3>8.3 Factory Method</h3>
-        <p class="author">Patryk Sobczyński</p>
-        <h4>Problem</h4>
-        <div class="pattern-problem">
-            <p class="guidelines"></p>
-	</div>
-        <h4>Solution</h4>
-        <div class="pattern-description">
-            <p class="guidelines">
-		</p>
-        </div>
-        <h4>Class diagram</h4>
-        <p class="uml pattern-diagram">
-            @startuml
-	@enduml
-
-
-        <h4>Kod wzorca</h4>
-        <pre class="pattern-code"><code class="lang-java">
-        </code></pre>
-    </section>
-				
+	</section>				
 	</article>
 
 
