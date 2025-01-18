@@ -1657,6 +1657,188 @@ class Fleet implements RentalItem {
             }
 		</code></pre>
 	</section>
+	<section class="pattern">
+		<h3>9.2 Bridge</h3>
+		<p class="author">Jakub Sikora</p>
+		<h4>Problem</h4>
+		<div class="pattern-problem">
+			<p class="guidelines">In a user management system with different types of users (e.g., technicians, managers, administrators), it is necessary to provide flexible management of access to specific resources or functions. Users should have different levels of permissions (e.g., updating car status, creating schedules), and their permissions should be defined independently of their role in the system. It is essential to separate user logic from permission logic to enable easy system expansion and maintain code clarity.</p>
+		</div>
+		<h4>Solution</h4>
+		<div class="pattern-description">
+			<p class="guidelines">The Bridge design pattern allows separating user logic (e.g., CustomerServiceRepresentative, Manager) from their assigned permissions (Permission). This enables independent development of the user hierarchy and the permission hierarchy, avoiding complex class combinations. Users delegate the execution of operations to their assigned permissions.</p>
+		</div>
+		<h4>Class diagram</h4>
+		<p class="uml pattern-diagram">
+			@startuml
+interface Permission {
+ + hasAccess(String resource) : boolean
+ + getDescription() : String 
+}
+
+abstract class User {
+
+ name : String
+ surname : String
+ permission : Permission
+ User(String, String, Permission)
+ addTask(String)
+ displayInfo()
+ performTask(String) 
+}
+
+Permission *-> User
+
+class CustomerServiceRepresentative extends User {}
+class MaintenanceTechnician extends User {}
+class Manager extends User {}
+class Administrator extends User {}
+
+class UpdateCarStatus implements Permission {}
+class CreateSchedule implements Permission {}
+class AssignTask implements Permission {}
+class RentVehicle implements Permission {}
+@enduml
+
+	
+		<h6>Kod wzorca</h6>
+		<pre class="pattern-code"><code class="lang-java">
+			import java.util.*;
+
+interface Permission {
+    boolean hasAccess(String resource);
+    String getDescription();
+}
+
+abstract class User {
+    protected String name;
+    protected String surname;
+    protected Permission permission;
+
+    public User(String name, String surname, Permission permission) {
+        this.name = name;
+        this.surname = surname;
+        this.permission = permission;
+    }
+
+    public void displayInfo() {
+        System.out.println("User: " + name + " " + surname + ", Permission: " + permission.getDescription());
+    }
+
+    public void performTask(String resource) {
+        System.out.println(name + " is trying to perform a task on: " + resource);
+        if (permission.hasAccess(resource)) {
+            System.out.println("Task performed successfully on " + resource);
+        } else {
+            System.out.println("Access denied to perform task on " + resource);
+        }
+    }
+}
+class CustomerServiceRepresentative extends User {
+    public CustomerServiceRepresentative(String name, String surname, Permission permission) {
+        super(name, surname, permission);
+    }
+}
+
+class MaintenanceTechnician extends User {
+    public MaintenanceTechnician(String name, String surname, Permission permission) {
+        super(name, surname, permission);
+    }
+}
+
+class Manager extends User {
+    public Manager(String name, String surname, Permission permission) {
+        super(name, surname, permission);
+    }
+}
+
+class Administrator extends User {
+    public Administrator(String name, String surname, Permission permission) {
+        super(name, surname, permission);
+    }
+}
+class UpdateCarStatus implements Permission {
+    @Override
+    public boolean hasAccess(String resource) {
+        return resource.equals("car_status");
+    }
+
+    @Override
+    public String getDescription() {
+        return "Permission to update car status";
+    }
+}
+
+class CreateSchedule implements Permission {
+    @Override
+    public boolean hasAccess(String resource) {
+        return resource.equals("schedule");
+    }
+
+    @Override
+    public String getDescription() {
+        return "Permission to create schedules";
+    }
+}
+
+class AssignTask implements Permission {
+    @Override
+    public boolean hasAccess(String resource) {
+        return resource.equals("tasks");
+    }
+
+    @Override
+    public String getDescription() {
+        return "Permission to assign tasks";
+    }
+}
+
+class RentVehicle implements Permission {
+    @Override
+    public boolean hasAccess(String resource) {
+        return resource.equals("vehicles");
+    }
+
+    @Override
+    public String getDescription() {
+        return "Permission to rent vehicles";
+    }
+}
+
+		</code></pre>
+		<h4>Kod testowy wzorca</h4>
+		<pre class="pattern-test-code"><code class="lang-java">
+            public class PermissionSystemTest {
+    public static void main(String[] args) {
+        // Tworzenie różnych typów uprawnień
+        Permission updateCarPermission = new UpdateCarStatus();
+        Permission createSchedulePermission = new CreateSchedule();
+        Permission assignTaskPermission = new AssignTask();
+        Permission rentVehiclePermission = new RentVehicle();
+
+        // Tworzenie użytkowników z przypisanymi uprawnieniami
+        User csr = new CustomerServiceRepresentative("John", "Doe", rentVehiclePermission);
+        User technician = new MaintenanceTechnician("Jane", "Smith", updateCarPermission);
+        User manager = new Manager("Alice", "Johnson", createSchedulePermission);
+        User admin = new Administrator("Bob", "Brown", assignTaskPermission);
+
+        // Wyświetlanie informacji o użytkownikach
+        System.out.println("--- Displaying Users ---");
+        csr.displayInfo();
+        technician.displayInfo();
+        manager.displayInfo();
+        admin.displayInfo();
+
+        // Próba wykonywania zadań na różnych zasobach
+        System.out.println("\n--- Performing Tasks ---");
+        csr.performTask("vehicles");
+        technician.performTask("car_status");
+        manager.performTask("schedule");
+        admin.performTask("tasks");
+    }
+}
+		</code></pre>
+	</section>
 	</article>
 
 	<article>
