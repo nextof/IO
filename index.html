@@ -1972,6 +1972,179 @@ class RentVehicle implements Permission {
 			}
 		</code></pre>
 	</section>
+	<section class="pattern">
+		<h3>10.2 Chain of Responsibility</h3>
+		<p class="author">Jakub Sikora</p>
+		<h4>Problem</h4>
+		<div class="pattern-problem">
+			<p class="guidelines">Managing a vehicle reservation system involves handling a sequence of tasks such as vehicle selection, entering user details, and payment validation. Implementing this as a single monolithic function can lead to unreadable and unmaintainable code. Additionally, introducing new steps or modifying the existing ones can become cumbersome without a clear separation of concerns.
+			</p>
+		</div>
+		<h4>Solution</h4>
+		<div class="pattern-description">
+			<p class="guidelines">The Chain of Responsibility pattern allows us to encapsulate each step of the reservation process into a separate handler class. Each handler processes the request or delegates it to the next handler in the chain. This approach ensures flexibility, reusability, and maintainability of the code.</p>
+		</div>
+		<h4>Class diagram</h4>
+		<p class="uml pattern-diagram">
+		@startuml
+		interface ReservationStep {
+			+ setNext(ReservationStep next) : void
+			+ handle(ReservationRequest request) : void
+		}
+		
+		class AbstractReservationStep implements ReservationStep {
+			- nextStep : ReservationStep
+			+ setNext(ReservationStep next) : void
+			+ handle(ReservationRequest request) : void
+		}
+		
+		class VehicleSelectionStep extends AbstractReservationStep {
+			+ handle(ReservationRequest request) : void
+		}
+		
+		class UserDataStep extends AbstractReservationStep {
+			+ handle(ReservationRequest request) : void
+		}
+		
+		class PaymentProcessingStep extends AbstractReservationStep {
+			+ handle(ReservationRequest request) : void
+		}
+		
+		class ReservationRequest {
+			- selectedVehicle : String
+			- userData : Map<String, String>
+			- paymentDetails : String
+			+ getSelectedVehicle() : String
+			+ setSelectedVehicle(String vehicle) : void
+			+ getUserData() : Map<String, String>
+			+ setUserData(Map<String, String> data) : void
+			+ getPaymentDetails() : String
+			+ setPaymentDetails(String details) : void
+		}
+		@enduml
+		
+	
+		<h4>Kod wzorca</h4>
+		<pre class="pattern-code"><code class="lang-java">
+			import java.util.ArrayList;
+			import java.util.List;
+			import java.util.Map;
+		   
+			public interface ReservationStep {
+				void setNext(ReservationStep next);
+				void handle(ReservationRequest request);
+			}
+	
+	
+			public abstract class AbstractReservationStep implements ReservationStep {
+				private ReservationStep nextStep;
+			
+				@Override
+				public void setNext(ReservationStep next) {
+					this.nextStep = next;
+				}
+			
+				protected void next(ReservationRequest request) {
+					if (nextStep != null) {
+						nextStep.handle(request);
+					}
+				}
+			}
+
+			public class VehicleSelectionStep extends AbstractReservationStep {
+				@Override
+				public void handle(ReservationRequest request) {
+					if (request.getSelectedVehicle() == null || request.getSelectedVehicle().isEmpty()) {
+						System.out.println("Vehicle selection is required.");
+						return;
+					}
+					System.out.println("Vehicle selected: " + request.getSelectedVehicle());
+					next(request);
+				}
+			}
+
+			
+			public class UserDataStep extends AbstractReservationStep {
+				@Override
+				public void handle(ReservationRequest request) {
+					if (request.getUserData() == null || request.getUserData().isEmpty()) {
+						System.out.println("User data is required.");
+						return;
+					}
+					System.out.println("User data provided: " + request.getUserData());
+					next(request);
+				}
+			}
+			
+			public class PaymentProcessingStep extends AbstractReservationStep {
+				@Override
+				public void handle(ReservationRequest request) {
+					if (request.getPaymentDetails() == null || request.getPaymentDetails().isEmpty()) {
+						System.out.println("Payment details are missing.");
+						return;
+					}
+					System.out.println("Payment processed for details: " + request.getPaymentDetails());
+					System.out.println("Reservation completed successfully!");
+				}
+			}
+			public class ReservationRequest {
+				private String selectedVehicle;
+				private Map<String, String> userData;
+				private String paymentDetails;
+			
+				public String getSelectedVehicle() {
+					return selectedVehicle;
+				}
+			
+				public void setSelectedVehicle(String selectedVehicle) {
+					this.selectedVehicle = selectedVehicle;
+				}
+			
+				public Map<String, String> getUserData() {
+					return userData;
+				}
+			
+				public void setUserData(Map<String, String> userData) {
+					this.userData = userData;
+				}
+			
+				public String getPaymentDetails() {
+					return paymentDetails;
+				}
+			
+				public void setPaymentDetails(String paymentDetails) {
+					this.paymentDetails = paymentDetails;
+				}
+			}
+		</code></pre>
+		<h4>Kod testowy wzorca</h4>
+		<pre class="pattern-test-code"><code class="lang-java">
+			public class Main {
+				public static void main(String[] args) {
+					// Tworzenie kroków
+					VehicleSelectionStep vehicleSelection = new VehicleSelectionStep();
+					UserDataStep userDataStep = new UserDataStep();
+					PaymentProcessingStep paymentProcessingStep = new PaymentProcessingStep();
+			
+					// Konfiguracja łańcucha
+					vehicleSelection.setNext(userDataStep);
+					userDataStep.setNext(paymentProcessingStep);
+			
+					// Tworzenie żądania rezerwacji
+					ReservationRequest request = new ReservationRequest();
+					request.setSelectedVehicle("Toyota Corolla");
+					request.setUserData(new HashMap<>() {{
+						put("Name", "John Doe");
+						put("Email", "john.doe@example.com");
+					}});
+					request.setPaymentDetails("Credit Card - 1234-5678-9876-5432");
+			
+					// Rozpoczęcie przetwarzania
+					vehicleSelection.handle(request);
+				}
+			}
+		</code></pre>
+	</section>
 	</article>
 
 
