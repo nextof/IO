@@ -2009,6 +2009,141 @@ class RentVehicle implements Permission {
 }
 		</code></pre>
 	</section>
+	<section class="pattern">
+		<h3>9.3 Flyweight</h3>
+		<p class="author">Patryk Sobczyński</p>
+		<h4>Problem</h4>
+		<div class="pattern-problem">
+			<p class="guidelines">In a car rental management system, there are many vehicles with common attributes, such as make, model or vehicle type. Creating separate objects for each vehicle, including shared attributes, leads to inefficient use of memory.</p>
+		</div>
+		<h4>Solution</h4>
+		<div class="pattern-description">
+			<p class="guidelines">Wzorzec Flyweight pozwala współdzielić część stanu między wieloma obiektami. Stosując go, możemy przechowywać wspólne dane (tzw. dane współdzielone) w jednym obiekcie, a dane unikalne przechowywać osobno, minimalizując obciążenie pamięci.</div>
+		<h4>Class diagram</h4>
+		<p class="uml pattern-diagram">
+			@startuml
+			class Vehicle {
+			    - uniqueIdentifier: String
+			    - licensePlate: String
+			    - status: String
+			    - sharedState: VehicleSharedState
+			    --
+			    + getLicensePlate(): String
+			    + getStatus(): String
+			    + setStatus(status: String)
+			    + toString(): String
+			}
+			
+			class VehicleSharedState {
+			    - make: String
+			    - model: String
+			    - productionYear: int
+			    - vehicleType: String
+			    --
+			    + getMake(): String
+			    + getModel(): String
+			    + getVehicleType(): String
+			    + toString(): String
+			}
+			
+			class VehicleFactory {
+			    - cache: Map<String, VehicleSharedState>
+			    --
+			    + getVehicleSharedState(make: String, model: String, productionYear: int, vehicleType: String): VehicleSharedState
+			}
+			
+			Vehicle o-- VehicleSharedState : "<<shared>>"
+			VehicleFactory o-- VehicleSharedState : "<<create>>"
+			@enduml
+	
+		<h6>Kod wzorca</h6>
+		<pre class="pattern-code"><code class="lang-java">
+			public class VehicleSharedState {
+				    private final String make;
+				    private final String model;
+				    private final int productionYear;
+				    private final String vehicleType;
+				
+				    public VehicleSharedState(String make, String model, int productionYear, String vehicleType) {
+				        this.make = make;
+				        this.model = model;
+				        this.productionYear = productionYear;
+				        this.vehicleType = vehicleType;
+				    }
+				
+				    @Override
+				    public String toString() {
+				        return "VehicleSharedState [Make=" + make + ", Model=" + model + ", ProductionYear=" + productionYear +
+				                ", VehicleType=" + vehicleType + "]";
+				    }
+				}
+
+				-------------------------------------------------
+			
+				public class Vehicle {
+				    private final String uniqueIdentifier;
+				    private final String licensePlate;
+				    private String status; // Available, Reserved, Rented, Under Maintenance
+				    private final VehicleSharedState sharedState;
+				
+				    public Vehicle(String uniqueIdentifier, String licensePlate, String status, VehicleSharedState sharedState) {
+				        this.uniqueIdentifier = uniqueIdentifier;
+				        this.licensePlate = licensePlate;
+				        this.status = status;
+				        this.sharedState = sharedState;
+				    }
+				
+				    public void setStatus(String status) {
+				        this.status = status;
+				    }
+				
+				    @Override
+				    public String toString() {
+				        return "Vehicle [ID=" + uniqueIdentifier + ", LicensePlate=" + licensePlate + ", Status=" + status + 
+				                ", SharedState=" + sharedState + "]";
+				    }
+				}
+
+				-------------------------------------------------
+				import java.util.HashMap;
+				import java.util.Map;
+				
+				public class VehicleFactory {
+				    private final Map<String, VehicleSharedState> cache = new HashMap<>();
+				
+				    public VehicleSharedState getVehicleSharedState(String make, String model, int productionYear, String vehicleType) {
+				        String key = make + "-" + model + "-" + productionYear + "-" + vehicleType;
+				        if (!cache.containsKey(key)) {
+				            cache.put(key, new VehicleSharedState(make, model, productionYear, vehicleType));
+				        }
+				        return cache.get(key);
+				    }
+				}				
+		</code></pre>
+		<h4>Kod testowy wzorca</h4>
+		<pre class="pattern-test-code"><code class="lang-java">
+			public class FlyweightPatternTest {
+			    public static void main(String[] args) {
+			        VehicleFactory vehicleFactory = new VehicleFactory();
+			
+			        // Tworzenie współdzielonego stanu dla pojazdów
+			        VehicleSharedState sedanState = vehicleFactory.getVehicleSharedState("Toyota", "Corolla", 2020, "Sedan");
+			        VehicleSharedState suvState = vehicleFactory.getVehicleSharedState("Ford", "Explorer", 2022, "SUV");
+			
+			        // Tworzenie obiektów pojazdów z unikalnym stanem
+			        Vehicle vehicle1 = new Vehicle("V001", "ABC123", "Available", sedanState);
+			        Vehicle vehicle2 = new Vehicle("V002", "XYZ789", "Reserved", sedanState);
+			        Vehicle vehicle3 = new Vehicle("V003", "LMN456", "Rented", suvState);
+			
+			        // Wyświetlanie pojazdów
+			        System.out.println(vehicle1);
+			        System.out.println(vehicle2);
+			        System.out.println(vehicle3);
+			    }
+			}
+		</code></pre>
+				
+	</section>
 	</article>
 
 	<article>
