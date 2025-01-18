@@ -2751,6 +2751,61 @@ CSR --> Client: Rental Complete
 
 			</p>
 		</section>
+		<section>
+			<h3>11.3 Car Repair | Cancel Vehicle Reservation</h3>
+			<p class="author">Sobczyński Patryk</p>
+			<p class="uml">
+				@startuml
+				 == Car Repair Process ==
+					actor Mechanic
+					participant System
+					participant Database
+					participant Vehicle
+					participant ObserverManager
+					participant NotificationService
+					
+					Mechanic -> System: ReportIssue [REP_001]
+					System -> Database: SELECT [DB_SEL_002]
+					Database --> System: {vehicleData}
+					
+					alt [Issue Found]
+					    System -> Vehicle: Update Status ("Under Maintenance") [VEH_UPD_002]
+					    System -> ObserverManager: NotifyObservers [OBS_NOT_002]
+					    ObserverManager -> NotificationService: SendNotification [NOTIFY_002]
+					    NotificationService --> ObserverManager: {notificationStatus}
+					else [No Issue Found]
+					    System -> Mechanic: {message: "No repair needed"} [RESP_003]
+					end
+					System -> Mechanic: {message: "Repair Process Initiated"} [RESP_004]
+
+				== Cancel Vehicle Reservation Process ==
+				actor Client
+				participant System
+				participant Database
+				participant Vehicle
+				participant PaymentsService
+				participant ObserverManager
+				participant NotificationService
+				
+				Client -> System: CancelReservation [REQ_002]
+				System -> Database: SELECT Reservation [DB_SEL_003]
+				Database --> System: {reservationData}
+				
+				alt [Reservation Found]
+				    System -> Vehicle: Update Status ("Available") [VEH_UPD_003]
+				    System -> PaymentsService: ProcessRefund [PAY_REF_001]
+				    PaymentsService --> System: {refundStatus: "success"}
+				
+				    System -> ObserverManager: NotifyObservers [OBS_NOT_003]
+				    ObserverManager -> NotificationService: SendNotification [NOTIFY_003]
+				    NotificationService --> ObserverManager: {notificationStatus}
+				
+				    System -> Client: {message: "Cancellation Successful"} [RESP_005]
+				else [Reservation Not Found]
+				    System -> Client: {message: "Cancellation Failed"} [RESP_006]
+				end
+				@enduml
+			</p>
 	</article>
 
 </body>
