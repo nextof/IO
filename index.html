@@ -2752,7 +2752,7 @@ CSR --> Client: Rental Complete
 			</p>
 		</section>
 		<section>
-			<h3>11.3 Car Repair | Cancel Vehicle Reservation</h3>
+			<h3>11.3 Car Repair</h3>
 			<p class="author">Sobczyński Patryk</p>
 			<p class="uml">
 				@startuml
@@ -2781,6 +2781,40 @@ CSR --> Client: Rental Complete
 				
 				@enduml
 			</p>
+		</section>
+		<section>
+			<h3>11.3 Cancel Vehicle Reservation</h3>
+			<p class="author">Sobczyński Patryk</p>
+			<p class="uml">
+			@startuml
+			== Cancel Vehicle Reservation Process ==
+				actor Client
+				participant System
+				participant Database
+				participant Vehicle
+				participant PaymentsService
+				participant ObserverManager
+				participant NotificationService
+				
+				Client -> System: CancelReservation [REQ_002]
+				System -> Database: SELECT Reservation [DB_SEL_003]
+				Database --> System: {reservationData}
+				
+				alt [Reservation Found]
+				    System -> Vehicle: Update Status ("Available") [VEH_UPD_003]
+				    System -> PaymentsService: ProcessRefund [PAY_REF_001]
+				    PaymentsService --> System: {refundStatus: "success"}
+				
+				    System -> ObserverManager: NotifyObservers [OBS_NOT_003]
+				    ObserverManager -> NotificationService: SendNotification [NOTIFY_003]
+				    NotificationService --> ObserverManager: {notificationStatus}
+				
+				    System -> Client: {message: "Cancellation Successful"} [RESP_005]
+				else [Reservation Not Found]
+				    System -> Client: {message: "Cancellation Failed"} [RESP_006]
+				end
+			@enduml
+		</section>
 	</article>
 
 </body>
