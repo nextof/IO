@@ -1703,7 +1703,7 @@ class RentVehicle implements Permission {}
 	
 		<h6>Kod wzorca</h6>
 		<pre class="pattern-code"><code class="lang-java">
-			import java.util.*;
+import java.util.*;
 
 interface Permission {
     boolean hasAccess(String resource);
@@ -1810,27 +1810,22 @@ class RentVehicle implements Permission {
 		<pre class="pattern-test-code"><code class="lang-java">
             public class PermissionSystemTest {
     public static void main(String[] args) {
-        // Tworzenie różnych typów uprawnień
+			
         Permission updateCarPermission = new UpdateCarStatus();
         Permission createSchedulePermission = new CreateSchedule();
         Permission assignTaskPermission = new AssignTask();
         Permission rentVehiclePermission = new RentVehicle();
 
-        // Tworzenie użytkowników z przypisanymi uprawnieniami
         User csr = new CustomerServiceRepresentative("John", "Doe", rentVehiclePermission);
         User technician = new MaintenanceTechnician("Jane", "Smith", updateCarPermission);
         User manager = new Manager("Alice", "Johnson", createSchedulePermission);
         User admin = new Administrator("Bob", "Brown", assignTaskPermission);
 
-        // Wyświetlanie informacji o użytkownikach
-        System.out.println("--- Displaying Users ---");
         csr.displayInfo();
         technician.displayInfo();
         manager.displayInfo();
         admin.displayInfo();
 
-        // Próba wykonywania zadań na różnych zasobach
-        System.out.println("\n--- Performing Tasks ---");
         csr.performTask("vehicles");
         technician.performTask("car_status");
         manager.performTask("schedule");
