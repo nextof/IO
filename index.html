@@ -2452,7 +2452,183 @@ class RentVehicle implements Permission {
 				}
 			}
 		</code></pre>
-	</section>				
+	</section>
+	<h3>10.3 Command</h3>
+		<p class="author">Patryk Sobczyński</p>
+		<h4>Problem</h4>
+		<div class="pattern-problem">
+			<p class="guidelines">
+				The rental management system must handle various vehicle management operations, such as changing vehicle status. Without the right approach, the code can be difficult to maintain, especially when operations need to be logged, stored in a queue or allow undo.
+			</p>
+		</div>
+		<h4>Solution</h4>
+		<div class="pattern-description">
+			<p class="guidelines">
+				The Command pattern allows you to model each operation as a command object. Each command contains the logic for executing the operation and is passed to the invoker, which manages its execution.
+			</p>	
+		</div>
+		<h4>Class diagram</h4>
+		<p class="uml pattern-diagram">
+		@startuml
+		class Vehicle {
+		    - status: String
+		    --
+		    + setStatus(status: String)
+		    + getStatus(): String
+		    + toString(): String
+		}
+		
+		interface Command {
+		    + execute()
+		    + undo()
+		}
+		
+		class ChangeVehicleStatusCommand implements Command {
+		    - vehicle: Vehicle
+		    - newStatus: String
+		    - previousStatus: String
+		    --
+		    + execute()
+		    + undo()
+		}
+		
+		class Invoker {
+		    - commandQueue: List<Command>
+		    --
+		    + addCommand(command: Command)
+		    + executeCommands()
+		}
+		
+		Invoker o-- Command : "uses"
+		ChangeVehicleStatusCommand o-- Vehicle : "operates on"
+		@enduml
+
+	
+		<h4>Kod wzorca</h4>
+		<pre class="pattern-code"><code class="lang-java">
+			public class Vehicle {
+				    private String status;
+				
+				    public Vehicle(String initialStatus) {
+				        this.status = initialStatus;
+				    }
+				
+				    public void setStatus(String status) {
+				        this.status = status;
+				    }
+				
+				    public String getStatus() {
+				        return status;
+				    }
+				
+				    @Override
+				    public String toString() {
+				        return "Vehicle [Status=" + status + "]";
+				    }
+				}
+				
+				public interface Command {
+				    void execute();
+				    void undo();
+				}
+				
+				public class ChangeVehicleStatusCommand implements Command {
+				    private final Vehicle vehicle;
+				    private final String newStatus;
+				    private String previousStatus;
+				
+				    public ChangeVehicleStatusCommand(Vehicle vehicle, String newStatus) {
+				        this.vehicle = vehicle;
+				        this.newStatus = newStatus;
+				    }
+				
+				    @Override
+				    public void execute() {
+				        previousStatus = vehicle.getStatus();
+				        vehicle.setStatus(newStatus);
+				        System.out.println("Changed status to: " + newStatus);
+				    }
+				
+				    @Override
+				    public void undo() {
+				        vehicle.setStatus(previousStatus);
+				        System.out.println("Reverted status to: " + previousStatus);
+				    }
+				}
+					
+				public class ChangeVehicleStatusCommand implements Command {
+				    private final Vehicle vehicle;
+				    private final String newStatus;
+				    private String previousStatus;
+				
+				    public ChangeVehicleStatusCommand(Vehicle vehicle, String newStatus) {
+				        this.vehicle = vehicle;
+				        this.newStatus = newStatus;
+				    }
+				
+				    @Override
+				    public void execute() {
+				        previousStatus = vehicle.getStatus();
+				        vehicle.setStatus(newStatus);
+				        System.out.println("Changed status to: " + newStatus);
+				    }
+				
+				    @Override
+				    public void undo() {
+				        vehicle.setStatus(previousStatus);
+				        System.out.println("Reverted status to: " + previousStatus);
+				    }
+				}
+				
+				import java.util.ArrayList;
+				import java.util.List;
+				
+				public class Invoker {
+				    private final List<Command> commandQueue = new ArrayList<>();
+				
+				    public void addCommand(Command command) {
+				        commandQueue.add(command);
+				    }
+				
+				    public void executeCommands() {
+				        for (Command command : commandQueue) {
+				            command.execute();
+				        }
+				        commandQueue.clear(); // Clear the queue after execution
+				    }
+				}
+
+		</code></pre>
+		<h4>Kod testowy wzorca</h4>
+		<pre class="pattern-test-code"><code class="lang-java">
+			public class CommandPatternTest {
+				    public static void main(String[] args) {
+				        // Tworzenie pojazdu
+				        Vehicle vehicle = new Vehicle("Available");
+				
+				        // Tworzenie poleceń
+				        Command reserveCommand = new ChangeVehicleStatusCommand(vehicle, "Reserved");
+				        Command rentCommand = new ChangeVehicleStatusCommand(vehicle, "Rented");
+				        Command maintainCommand = new ChangeVehicleStatusCommand(vehicle, "Under Maintenance");
+				
+				        // Invoker
+				        Invoker invoker = new Invoker();
+				
+				        // Dodawanie poleceń do kolejki
+				        invoker.addCommand(reserveCommand);
+				        invoker.addCommand(rentCommand);
+				        invoker.addCommand(maintainCommand);
+				
+				        // Wykonanie poleceń
+				        invoker.executeCommands();
+				
+				        // Cofnięcie ostatniej operacji
+				        maintainCommand.undo();
+				    }
+				}
+
+		</code></pre>
+	</section>			
 	</article>
 
 
