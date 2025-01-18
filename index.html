@@ -2221,6 +2221,52 @@ CSR --> Client: Rental Complete
                 
 			</p>
 		</section>
+		<section>
+			<h3>11.2 Task assignment</h3>
+			<p class="author">Sikora Jakub</p>
+			<p class="uml">
+                @startuml
+
+                actor Manager
+                actor "Maintenance Technician" as Technician
+                participant "System" as System
+                participant "Database" as Database
+                participant "Notification Service" as NS
+
+                == Task Assignment Process ==
+
+                Manager -> System: AddTask [REQ_001]
+                System -> Database: Check Technician Availability [DB_SEL_001]
+                Database --> System: {status: "available"} [DB_RES_001]
+
+                alt Technician Available
+                    System -> Database: Insert Task Assignment [DB_INS_001]
+                    Database --> System: {status: "success"} [DB_RES_002]
+                    System -> NS: Notify Technician [NOTIFY_001]
+                    NS --> Technician: {message: "New Task Assigned"} [NOTIFY_RES_001]
+                else Technician Unavailable
+                    System --> Manager: {message: "Technician Unavailable"} [RESP_001]
+                end
+
+                System --> Manager: {message: "Task Assigned Successfully"} [RESP_002]
+
+                == Task Execution Process ==
+
+                Technician -> System: StartTask [REQ_002]
+                System -> Database: Update Task Status("In Progress") [DB_UPD_001]
+                Database --> System: {status: "success"} [DB_RES_003]
+
+                Technician -> System: CompleteTask [REQ_003]
+                System -> Database: Update Task Status("Completed") [DB_UPD_002]
+                Database --> System: {status: "success"} [DB_RES_004]
+
+                System -> NS: Notify Manager [NOTIFY_002]
+                NS --> Manager: {message: "Task Completed"} [NOTIFY_RES_002]
+
+                @enduml
+
+			</p>
+		</section>
 	</article>
 
 </body>
